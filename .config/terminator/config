@@ -1,0 +1,80 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+  window_state = maximise
+[keybindings]
+  line_down = <Primary><Shift>Down
+  line_up = <Primary><Shift>Up
+  resize_down = <Primary><Shift>asciicircum
+  resize_left = <Primary><Shift>ampersand
+  resize_right = <Primary><Shift>asterisk
+  resize_up = <Primary><Shift>parenleft
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 7ff45a57-57b8-49ec-bdec-c8560661fc58
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:27
+      size = 1366, 702
+      title = shellbro@workstation:~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 348
+      ratio = 0.499287749288
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 680
+      ratio = 0.499633967789
+      type = HPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 680
+      ratio = 0.499633967789
+      type = HPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 7ff45a57-57b8-49ec-bdec-c8560661fc58
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = c837b257-db26-47d9-ac91-78d08f8e12a7
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 50c495da-47db-4078-bf5d-7fbb0689a3ee
+    [[[terminal7]]]
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = ff74bc34-0403-47f8-822f-ea70a18514e3
+  [[old default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    autoclean_groups = False
+    background_image = None
+    scrollback_infinite = True
+    split_to_group = True
