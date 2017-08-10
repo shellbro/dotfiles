@@ -4,6 +4,7 @@
 (package-initialize)
 
 
+(setq column-number-mode t)
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 
