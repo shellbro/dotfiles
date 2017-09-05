@@ -54,7 +54,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (php-mode web-mode markdown-mode yaml-mode ac-cider cider aggressive-indent rainbow-delimiters smartparens auto-complete))))
+    (magit php-mode web-mode markdown-mode yaml-mode ac-cider cider aggressive-indent rainbow-delimiters smartparens auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
