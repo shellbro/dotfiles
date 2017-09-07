@@ -5,8 +5,8 @@
 
 
 (setq column-number-mode t)
-(setq auto-save-default nil)
-(setq make-backup-files nil)
+(setq make-backup-files nil) ; turn off storing backup files (on save) under the original name with a ~ appended
+(setq auto-save-default nil) ; turn off storing auto-save files intermittently with a file name on the form #file#
 
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
