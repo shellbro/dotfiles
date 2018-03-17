@@ -8,7 +8,11 @@ fi
 # User specific environment and startup programs
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
-
 export PATH
 
-export EDITOR='emacs -nw'
+if [ -f /usr/local/bin/emacs ]; then
+    EDITOR=/usr/local/bin/emacs # the latest release if available
+else
+    EDITOR=emacs # repository version taking into account user PATH
+fi
+export EDITOR
