@@ -3,7 +3,14 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(toggle-frame-maximized)
+(defun modern-emacs-version ()
+  (or (>= emacs-major-version 25)
+      (and (= emacs-major-version 24)
+           (>= emacs-minor-version 4))))
+
+(when (modern-emacs-version)
+  (toggle-frame-maximized))
+
 (setq-default indent-tabs-mode nil) ; turn off tabs e.g. in Markdown mode
 (setq make-backup-files nil) ; turn off storing backup files (on save) under the original name with a ~ appended
 (setq auto-save-default nil) ; turn off storing auto-save files intermittently with a file name on the form #file#
