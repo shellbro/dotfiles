@@ -13,6 +13,7 @@
 
 (when (modern-emacs-version)
   (toggle-frame-maximized))
+(split-window-right)
 (setq inhibit-startup-screen t)
 (setq column-number-mode t)
 (setq make-backup-files nil) ; turn off storing backup files (on save) under the original name with a ~ appended
