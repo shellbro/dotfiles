@@ -3,15 +3,13 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
-
+(toggle-frame-maximized)
 (setq-default indent-tabs-mode nil) ; turn off tabs e.g. in Markdown mode
 (setq make-backup-files nil) ; turn off storing backup files (on save) under the original name with a ~ appended
 (setq auto-save-default nil) ; turn off storing auto-save files intermittently with a file name on the form #file#
 (setq column-number-mode t)
 
-
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-
 
 (add-hook 'prog-mode-hook
 	  (lambda()
@@ -21,22 +19,17 @@
 	    (local-set-key (kbd "C-c <down>")  'hs-show-all)
 	    (hs-minor-mode t)))
 
-
 (require 'auto-complete)
 (global-auto-complete-mode t)
-
 
 (add-hook 'prog-mode-hook #'smartparens-mode)
 (add-hook 'cider-repl-mode-hook #'smartparens-mode)
 
-
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 
-
 (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-
 
 (require 'ac-cider)
 (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
@@ -46,7 +39,6 @@
   '(progn
      (add-to-list 'ac-modes 'cider-mode)
      (add-to-list 'ac-modes 'cider-repl-mode)))
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
