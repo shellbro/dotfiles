@@ -29,6 +29,7 @@
 (add-hook 'company-completion-started-hook 'company-turn-off-fci)
 (add-hook 'company-completion-finished-hook 'company-maybe-turn-on-fci)
 (add-hook 'company-completion-cancelled-hook 'company-maybe-turn-on-fci)
+;; workaround for company mode ends here
 
 ;; turn off storing backup files (on save) under the original name with
 ;; a ~ appended
