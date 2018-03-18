@@ -3,30 +3,30 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(defun emacs-version-at-least (major-version minor-version)
-  (or (>= emacs-major-version (1+ major-version))
-      (and (= emacs-major-version major-version)
-           (>= emacs-minor-version minor-version))))
-
 ;; look and feel
-(when (emacs-version-at-least 24 4)
-  (toggle-frame-maximized))
 (load-theme 'zenburn t)
-(split-window-right)
+(toggle-frame-maximized)
+(tool-bar-mode -1)
 (setq inhibit-startup-screen t)
+
+(add-hook 'after-change-major-mode-hook 'fci-mode)
+(setq fci-rule-column 80)
+(setq fci-rule-use-dashes t)
+(setq fci-rule-color "gray")
 (setq column-number-mode t)
 
-;; turn off storing backup files (on save)
-;; under the original name  with a ~ appended
+;; turn off storing backup files (on save) under the original name with
+;; a ~ appended
 (setq make-backup-files nil)
-;; turn off storing auto-save files intermittently
-;; with a file name on the form #file#
+;; turn off storing auto-save files intermittently with a file name on the
+;; form #file#
 (setq auto-save-default nil)
 ;; turn off tabs for example in Markdown mode
 (setq-default indent-tabs-mode nil)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; hs
 (add-hook 'prog-mode-hook
 	  (lambda()
 	    (local-set-key (kbd "C-c <right>") 'hs-show-block)
@@ -35,28 +35,21 @@
 	    (local-set-key (kbd "C-c <down>") 'hs-show-all)
 	    (hs-minor-mode t)))
 
+;; company
+(add-hook 'after-init-hook 'global-company-mode)
+
 ;; SP
 (add-hook 'prog-mode-hook #'smartparens-mode)
 (add-hook 'cider-repl-mode-hook #'smartparens-mode)
 
+;; -
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 
 ;; =>
 (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+(add-hook 'cider-repl-mode-hook #'aggressive-indent-mode)
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-
-(require 'auto-complete)
-(global-auto-complete-mode t)
-
-(require 'ac-cider)
-(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-(add-hook 'cider-mode-hook 'ac-cider-setup)
-(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
-(eval-after-load "auto-complete"
-  '(progn
-     (add-to-list 'ac-modes 'cider-mode)
-     (add-to-list 'ac-modes 'cider-repl-mode)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -65,7 +58,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (zenburn-theme magit php-mode web-mode markdown-mode yaml-mode ac-cider cider aggressive-indent rainbow-delimiters smartparens auto-complete))))
+    (company fill-column-indicator zenburn-theme magit php-mode markdown-mode yaml-mode cider aggressive-indent rainbow-delimiters smartparens))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
