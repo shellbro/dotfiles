@@ -74,6 +74,10 @@
 (add-hook 'cider-repl-mode-hook #'aggressive-indent-mode)
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 
+(load "server")
+(unless (server-running-p)
+  (server-start))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
