@@ -54,6 +54,13 @@
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; cider
+(setq nrepl-hide-special-buffers t)
+
+;; REPL
+(setq cider-repl-pop-to-buffer-on-connect nil)
+(setq cider-repl-display-in-current-window t)
+
 ;; SP
 (add-hook 'prog-mode-hook #'smartparens-mode)
 (add-hook 'cider-repl-mode-hook #'smartparens-mode)
