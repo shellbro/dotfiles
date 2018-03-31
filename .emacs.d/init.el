@@ -7,6 +7,7 @@
 (load-theme 'zenburn t)
 (toggle-frame-maximized)
 (tool-bar-mode -1)
+(split-window-right)
 (setq inhibit-startup-screen t)
 
 (setq column-number-mode t)
