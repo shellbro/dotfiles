@@ -76,7 +76,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (solarized-theme company magit php-mode markdown-mode yaml-mode cider aggressive-indent rainbow-delimiters smartparens))))
+    (solarized-theme company magit markdown-mode yaml-mode cider aggressive-indent rainbow-delimiters smartparens))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
