@@ -8,9 +8,6 @@
 (setq solarized-high-contrast-mode-line t)
 (load-theme 'solarized-dark t)
 
-(setq whitespace-style '(face tabs empty trailing lines-tail))
-(global-whitespace-mode t)
-
 (toggle-frame-maximized)
 (tool-bar-mode -1)
 (split-window-right)
@@ -29,6 +26,10 @@
 (setq auto-save-default nil)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; WS
+(setq whitespace-style '(face tabs empty trailing lines-tail))
+(global-whitespace-mode t)
 
 ;; hs
 (add-hook 'prog-mode-hook
