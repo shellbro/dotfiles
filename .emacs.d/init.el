@@ -11,10 +11,9 @@
 (toggle-frame-maximized)
 (tool-bar-mode -1)
 (split-window-right)
+(set-frame-font "Source Code Pro 10")
 (setq column-number-mode t)
 (setq inhibit-startup-screen t)
-;; Change font size from 11px to 10px
-(set-face-attribute 'default nil :height 100)
 
 ;; Don't use tabs to indent (in Markdown mode, for example)
 (setq-default indent-tabs-mode nil)
