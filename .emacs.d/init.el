@@ -11,29 +11,9 @@
 (toggle-frame-maximized)
 (tool-bar-mode -1)
 (split-window-right)
-(setq inhibit-startup-screen t)
-
 (setq column-number-mode t)
-(add-hook 'after-change-major-mode-hook 'fci-mode)
-(setq fci-rule-column 80)
-(setq fci-rule-use-dashes t)
-(setq fci-rule-color "gray")
 
-;; workaround for company mode
-(defvar-local company-fci-mode-on-p nil)
-
-(defun company-turn-off-fci (&rest ignore)
-  (when (boundp 'fci-mode)
-    (setq company-fci-mode-on-p fci-mode)
-    (when fci-mode (fci-mode -1))))
-
-(defun company-maybe-turn-on-fci (&rest ignore)
-  (when company-fci-mode-on-p (fci-mode 1)))
-
-(add-hook 'company-completion-started-hook 'company-turn-off-fci)
-(add-hook 'company-completion-finished-hook 'company-maybe-turn-on-fci)
-(add-hook 'company-completion-cancelled-hook 'company-maybe-turn-on-fci)
-;; workaround for company mode ends here
+(setq inhibit-startup-screen t)
 
 ;; turn off storing backup files (on save) under the original name with
 ;; a ~ appended
@@ -89,7 +69,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (solarized-theme company fill-column-indicator magit php-mode markdown-mode yaml-mode cider aggressive-indent rainbow-delimiters smartparens))))
+    (solarized-theme company magit php-mode markdown-mode yaml-mode cider aggressive-indent rainbow-delimiters smartparens))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
