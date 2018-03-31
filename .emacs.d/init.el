@@ -9,9 +9,10 @@
 (load-theme 'solarized-dark t)
 
 (toggle-frame-maximized)
-(tool-bar-mode -1)
-(split-window-right)
 (set-frame-font "Source Code Pro 10")
+(split-window-right)
+(tool-bar-mode -1)
+(blink-cursor-mode -1)
 (setq column-number-mode t)
 
 (setq inhibit-startup-screen t)
