@@ -36,44 +36,44 @@
       position = 680
       ratio = 0.499633967789
       type = HPaned
-    [[[child5]]]
+    [[[child3]]]
       order = 1
       parent = child1
       position = 680
       ratio = 0.499633967789
       type = HPaned
-    [[[terminal3]]]
+    [[[terminal0]]]
+      command = ""
+      directory = /home/shellbro/Git/github.com
       order = 0
       parent = child2
       profile = default
       type = Terminal
       uuid = 7ff45a57-57b8-49ec-bdec-c8560661fc58
-    [[[terminal4]]]
+    [[[terminal1]]]
+      command = ""
+      directory = /home/shellbro/Playground
       order = 1
       parent = child2
       profile = default
       type = Terminal
       uuid = c837b257-db26-47d9-ac91-78d08f8e12a7
-    [[[terminal6]]]
+    [[[terminal2]]]
+      command = ""
+      directory = /home/shellbro/Git/bitbucket.org
       order = 0
-      parent = child5
+      parent = child3
       profile = default
       type = Terminal
       uuid = 50c495da-47db-4078-bf5d-7fbb0689a3ee
-    [[[terminal7]]]
+    [[[terminal3]]]
+      command = ""
+      directory = ""
       order = 1
-      parent = child5
+      parent = child3
       profile = default
       type = Terminal
       uuid = ff74bc34-0403-47f8-822f-ea70a18514e3
-  [[old default]]
-    [[[child1]]]
-      parent = window0
-      profile = default
-      type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
 [plugins]
 [profiles]
   [[default]]
