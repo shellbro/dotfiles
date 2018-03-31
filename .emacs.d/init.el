@@ -13,6 +13,7 @@
 (split-window-right)
 (set-frame-font "Source Code Pro 10")
 (setq column-number-mode t)
+
 (setq inhibit-startup-screen t)
 
 ;; Don't use tabs to indent (in Markdown mode, for example)
