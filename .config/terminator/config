@@ -1,5 +1,7 @@
 [global_config]
   suppress_multiple_term_dialog = True
+  title_font = Source Code Pro Medium 10
+  title_use_system_font = False
   window_state = maximise
 [keybindings]
   line_down = <Primary><Shift>Down
