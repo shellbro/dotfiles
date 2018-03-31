@@ -75,8 +75,11 @@
 [profiles]
   [[default]]
     autoclean_groups = False
+    background_color = "#002b36"
     background_image = None
     font = Source Code Pro Medium 10
+    foreground_color = "#839496"
+    scroll_on_output = False
     scrollback_infinite = True
     split_to_group = True
     use_system_font = False
