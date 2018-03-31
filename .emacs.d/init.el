@@ -17,6 +17,8 @@
 
 ;; Don't use tabs to indent (in Markdown mode, for example)
 (setq-default indent-tabs-mode nil)
+;; Newline at end of file
+(setq require-final-newline t)
 
 ;; Turn off storing backup files (on save) under the original name with
 ;; a ~ appended
