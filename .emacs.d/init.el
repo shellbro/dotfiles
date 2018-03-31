@@ -3,10 +3,13 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
-;; look and feel
+;; Look and feel
 (setq solarized-distinct-fringe-background t)
 (setq solarized-high-contrast-mode-line t)
 (load-theme 'solarized-dark t)
+
+(setq whitespace-style '(face tabs empty trailing lines-tail))
+(global-whitespace-mode t)
 
 (toggle-frame-maximized)
 (tool-bar-mode -1)
@@ -15,14 +18,15 @@
 
 (setq inhibit-startup-screen t)
 
-;; turn off storing backup files (on save) under the original name with
+;; Don't use tabs to indent (in Markdown mode, for example)
+(setq-default indent-tabs-mode nil)
+
+;; Turn off storing backup files (on save) under the original name with
 ;; a ~ appended
 (setq make-backup-files nil)
-;; turn off storing auto-save files intermittently with a file name on the
+;; Turn off storing auto-save files intermittently with a file name on the
 ;; form #file#
 (setq auto-save-default nil)
-;; turn off tabs for example in Markdown mode
-(setq-default indent-tabs-mode nil)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
