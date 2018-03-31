@@ -4,7 +4,10 @@
 (package-initialize)
 
 ;; look and feel
-(load-theme 'zenburn t)
+(setq solarized-distinct-fringe-background t)
+(setq solarized-high-contrast-mode-line t)
+(load-theme 'solarized-dark t)
+
 (toggle-frame-maximized)
 (tool-bar-mode -1)
 (split-window-right)
@@ -86,7 +89,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company fill-column-indicator zenburn-theme magit php-mode markdown-mode yaml-mode cider aggressive-indent rainbow-delimiters smartparens))))
+    (solarized-theme company fill-column-indicator magit php-mode markdown-mode yaml-mode cider aggressive-indent rainbow-delimiters smartparens))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
