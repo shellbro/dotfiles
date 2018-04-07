@@ -49,6 +49,7 @@
 
 ;; cider
 (setq nrepl-hide-special-buffers t)
+(setq cider-save-file-on-load nil)
 
 ;; REPL
 (setq cider-repl-pop-to-buffer-on-connect nil)
