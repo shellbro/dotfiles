@@ -44,7 +44,7 @@
       type = HPaned
     [[[terminal0]]]
       command = ""
-      directory = /home/shellbro/Git/github.com
+      directory = ""
       order = 0
       parent = child2
       profile = default
@@ -68,7 +68,7 @@
       uuid = 50c495da-47db-4078-bf5d-7fbb0689a3ee
     [[[terminal3]]]
       command = ""
-      directory = ""
+      directory = "/home/shellbro/Git/github.com"
       order = 1
       parent = child3
       profile = default
