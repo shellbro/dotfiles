@@ -68,7 +68,7 @@
       uuid = 50c495da-47db-4078-bf5d-7fbb0689a3ee
     [[[terminal3]]]
       command = ""
-      directory = "/home/shellbro/Git/github.com"
+      directory = /home/shellbro/Git/github.com
       order = 1
       parent = child3
       profile = default
