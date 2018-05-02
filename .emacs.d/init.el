@@ -71,6 +71,7 @@
 (load "server")
 (unless (server-running-p)
   (server-start))
+(add-hook 'server-switch-hook #'raise-frame)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
