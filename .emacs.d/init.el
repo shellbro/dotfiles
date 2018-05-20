@@ -19,6 +19,7 @@
 
 ;; Don't use tabs to indent (in Markdown mode, for example)
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 ;; Require newline at the end of a file
 (setq require-final-newline t)
 
