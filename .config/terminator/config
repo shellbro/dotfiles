@@ -52,7 +52,7 @@
       uuid = 7ff45a57-57b8-49ec-bdec-c8560661fc58
     [[[terminal1]]]
       command = ""
-      directory = /home/shellbro/Git/bitbucket.org/private
+      directory = ""
       order = 1
       parent = child2
       profile = default
