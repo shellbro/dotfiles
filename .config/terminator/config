@@ -52,7 +52,7 @@
       uuid = 7ff45a57-57b8-49ec-bdec-c8560661fc58
     [[[terminal1]]]
       command = ""
-      directory = /home/shellbro/Git/github.com/sources
+      directory = /home/shellbro/Git/bitbucket.org/private
       order = 1
       parent = child2
       profile = default
@@ -60,7 +60,7 @@
       uuid = c837b257-db26-47d9-ac91-78d08f8e12a7
     [[[terminal2]]]
       command = ""
-      directory = /home/shellbro/Git/bitbucket.org/private
+      directory = /home/shellbro/Git/github.com/sources
       order = 0
       parent = child3
       profile = default
