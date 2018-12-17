@@ -16,3 +16,5 @@ else
     EDITOR=emacs # repository version taking into account user PATH
 fi
 export EDITOR
+
+export PS1='[\t \u@\h \W $?]\$ '
