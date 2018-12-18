@@ -17,5 +17,7 @@ else
 fi
 export EDITOR
 
+export ANSIBLE_NOCOWS=1
+
 # User specific aliases and functions
 alias ec='emacsclient -n'
