@@ -9,7 +9,7 @@
 (load-theme 'solarized-dark t)
 
 (toggle-frame-maximized)
-(set-frame-font "Source Code Pro 10")
+(set-frame-font "Source Code Pro 11")
 (split-window-right)
 (tool-bar-mode -1)
 (blink-cursor-mode -1)
