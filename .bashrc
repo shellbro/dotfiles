@@ -23,6 +23,7 @@ export ANSIBLE_NOCOWS=1
 # User specific aliases and functions
 alias ec='emacsclient -n'
 alias df-pretty='df -Th -x tmpfs -x devtmpfs'
+alias docker-pull-all='sudo docker images --format "{{.Repository}}:{{.Tag}}" | grep -Fv "<none>" | grep -v "^shellbro-local" | xargs -L 1 sudo docker pull'
 alias dropbox='sudo docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
