@@ -29,6 +29,7 @@ alias dropbox='sudo docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-
 alias ec='emacsclient -n'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
+alias m='/home/shellbro/.local/bin/molecule'
 alias pia-up='nmcli con up "PIA - DE Berlin"'
 alias pia-down='nmcli con down "PIA - DE Berlin"'
 alias work-up='nmcli con up "Work - L2TP"'
