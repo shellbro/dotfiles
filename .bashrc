@@ -29,6 +29,8 @@ alias dropbox='sudo docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-
 alias ec='emacsclient -n'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
+alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
+alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
 alias pia-de-berlin-up='nmcli con up "PIA - DE Berlin"'
 alias pia-de-berlin-down='nmcli con down "PIA - DE Berlin"'
 alias sudo='sudo '
