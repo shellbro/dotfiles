@@ -71,6 +71,10 @@
 ;; company (company)
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; NeoTree
+(setq neo-theme 'icons)
+(add-hook 'after-init-hook #'neotree-toggle)
+
 ;; rainbow-delimiters (nil)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
@@ -104,7 +108,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (rainbow-delimiters aggressive-indent smartparens cider yaml-mode markdown-mode neotree magit company solarized-theme))))
+    (all-the-icons rainbow-delimiters aggressive-indent smartparens cider yaml-mode markdown-mode neotree magit company solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
