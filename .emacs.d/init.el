@@ -6,7 +6,7 @@
 (setq inhibit-startup-screen t)
 
 (load "server")
-(add-hook 'server-switch-hook #'raise-frame)
+(add-hook 'server-switch-hook 'raise-frame)
 (unless (server-running-p)
   (server-start))
 
@@ -58,9 +58,9 @@
 (add-hook 'after-init-hook 'global-whitespace-mode)
 
 ;; aggressive-indent (=>)
-(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-(add-hook 'cider-repl-mode-hook #'aggressive-indent-mode)
-(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+(add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
+(add-hook 'cider-repl-mode-hook 'aggressive-indent-mode)
+(add-hook 'clojure-mode-hook 'aggressive-indent-mode)
 
 ;; CIDER & (N)REPL (cider)
 (setq cider-repl-display-in-current-window t)
@@ -72,12 +72,12 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; rainbow-delimiters (nil)
-(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Smartparens (SP)
-(add-hook 'cider-repl-mode-hook #'smartparens-mode)
-(add-hook 'prog-mode-hook #'smartparens-mode)
+(add-hook 'cider-repl-mode-hook 'smartparens-mode)
+(add-hook 'prog-mode-hook 'smartparens-mode)
 
 ;; TODO:
 (require 'sgml-mode)
