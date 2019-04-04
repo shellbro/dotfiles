@@ -33,18 +33,18 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
-;; Turn off storing backup files (on save) under the original name with
-;; a ~ appended
-(setq make-backup-files nil)
 ;; Turn off storing auto-save files intermittently with a file name on the
 ;; form #file#
 (setq auto-save-default nil)
+;; Turn off storing backup files (on save) under the original name with
+;; a ~ appended
+(setq make-backup-files nil)
 
 (setq tramp-default-method "ssh")
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; HideShow (hs, built-in)
+;; HideShow (hs), built-in
 (add-hook 'prog-mode-hook
           (lambda()
             (local-set-key (kbd "C-c <right>") 'hs-show-block)
@@ -53,7 +53,7 @@
             (local-set-key (kbd "C-c <down>") 'hs-show-all)
             (hs-minor-mode t)))
 
-;; Whitespace (WS, built-in)
+;; Whitespace (WS), built-in
 (setq whitespace-style '(face tabs empty trailing lines-tail))
 (add-hook 'after-init-hook 'global-whitespace-mode)
 
@@ -73,7 +73,7 @@
 
 ;; NeoTree
 (setq neo-theme 'icons)
-(add-hook 'after-init-hook #'neotree-toggle)
+(add-hook 'after-init-hook 'neotree-toggle)
 
 ;; rainbow-delimiters (nil)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
