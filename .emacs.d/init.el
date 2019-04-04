@@ -13,6 +13,7 @@
 (toggle-frame-maximized)
 (split-window-right)
 (blink-cursor-mode -1)
+(setq ring-bell-function 'ignore)
 (setq column-number-mode t)
 
 (setq inhibit-startup-screen t)
