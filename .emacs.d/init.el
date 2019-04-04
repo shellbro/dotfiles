@@ -44,11 +44,7 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; WS (built-in)
-(setq whitespace-style '(face tabs empty trailing lines-tail))
-(global-whitespace-mode t)
-
-;; hs (build-in)
+;; HideShow (hs, built-in)
 (add-hook 'prog-mode-hook
           (lambda()
             (local-set-key (kbd "C-c <right>") 'hs-show-block)
@@ -57,7 +53,33 @@
             (local-set-key (kbd "C-c <down>") 'hs-show-all)
             (hs-minor-mode t)))
 
-;; FIXME:
+;; Whitespace (WS, built-in)
+(setq whitespace-style '(face tabs empty trailing lines-tail))
+(add-hook 'after-init-hook 'global-whitespace-mode)
+
+;; aggressive-indent (=>)
+(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+(add-hook 'cider-repl-mode-hook #'aggressive-indent-mode)
+(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+
+;; CIDER & (N)REPL (cider)
+(setq cider-repl-display-in-current-window t)
+(setq cider-repl-pop-to-buffer-on-connect nil)
+(setq cider-save-file-on-load nil)
+(setq nrepl-hide-special-buffers t)
+
+;; company (company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; rainbow-delimiters (nil)
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Smartparens (SP)
+(add-hook 'cider-repl-mode-hook #'smartparens-mode)
+(add-hook 'prog-mode-hook #'smartparens-mode)
+
+;; TODO:
 (require 'sgml-mode)
 (add-to-list 'hs-special-modes-alist
              '(nxml-mode
@@ -75,28 +97,6 @@
             (local-set-key (kbd "C-c <down>") 'hs-show-all)
             (hs-minor-mode t)))
 
-;; company
-(add-hook 'after-init-hook 'global-company-mode)
-
-;; CIDER & (N)REPL
-(setq nrepl-hide-special-buffers t)
-(setq cider-save-file-on-load nil)
-(setq cider-repl-pop-to-buffer-on-connect nil)
-(setq cider-repl-display-in-current-window t)
-
-;; SP
-(add-hook 'prog-mode-hook #'smartparens-mode)
-(add-hook 'cider-repl-mode-hook #'smartparens-mode)
-
-;; =>
-(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
-(add-hook 'cider-repl-mode-hook #'aggressive-indent-mode)
-(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-
-;; -
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -104,7 +104,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (rainbow-delimiters aggressive-indent smartparens cider yaml-mode markdown-mode magit company solarized-theme))))
+    (rainbow-delimiters aggressive-indent smartparens cider yaml-mode markdown-mode neotree magit company solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
