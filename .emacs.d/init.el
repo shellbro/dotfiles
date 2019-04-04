@@ -79,7 +79,7 @@
 (add-hook 'cider-repl-mode-hook 'smartparens-mode)
 (add-hook 'prog-mode-hook 'smartparens-mode)
 
-;; TODO:
+;; FIXME:
 (require 'sgml-mode)
 (add-to-list 'hs-special-modes-alist
              '(nxml-mode
