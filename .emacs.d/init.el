@@ -3,26 +3,33 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
-;; Look and feel
+(setq inhibit-startup-screen t)
+
+(load "server")
+(add-hook 'server-switch-hook #'raise-frame)
+(unless (server-running-p)
+  (server-start))
+
+(tool-bar-mode -1)
+(toggle-frame-maximized)
+(split-window-right)
+
+(setq column-number-mode t)
+(setq ring-bell-function 'ignore)
+(blink-cursor-mode -1)
+
 (setq solarized-distinct-fringe-background t)
 (setq solarized-high-contrast-mode-line t)
 (load-theme 'solarized-dark t)
 
 (set-frame-font "Source Code Pro 11")
-(tool-bar-mode -1)
-(toggle-frame-maximized)
-(split-window-right)
-(blink-cursor-mode -1)
-(setq ring-bell-function 'ignore)
-(setq column-number-mode t)
 
-(setq inhibit-startup-screen t)
+;; Require newline at the end of a file
+(setq require-final-newline t)
 
 ;; Don't use tabs to indent (in Markdown mode, for example)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
-;; Require newline at the end of a file
-(setq require-final-newline t)
 
 ;; Turn off storing backup files (on save) under the original name with
 ;; a ~ appended
@@ -30,6 +37,8 @@
 ;; Turn off storing auto-save files intermittently with a file name on the
 ;; form #file#
 (setq auto-save-default nil)
+
+(setq tramp-default-method "ssh")
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -45,6 +54,7 @@
             (local-set-key (kbd "C-c <up>") 'hs-hide-all)
             (local-set-key (kbd "C-c <down>") 'hs-show-all)
             (hs-minor-mode t)))
+
 ;; FIXME:
 (require 'sgml-mode)
 (add-to-list 'hs-special-modes-alist
@@ -66,11 +76,9 @@
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; cider
+;; CIDER & (N)REPL
 (setq nrepl-hide-special-buffers t)
 (setq cider-save-file-on-load nil)
-
-;; REPL
 (setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-repl-display-in-current-window t)
 
@@ -86,13 +94,6 @@
 ;; -
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
-
-(load "server")
-(unless (server-running-p)
-  (server-start))
-(add-hook 'server-switch-hook #'raise-frame)
-
-(setq tramp-default-method "ssh")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
