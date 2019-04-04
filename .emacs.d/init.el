@@ -8,10 +8,10 @@
 (setq solarized-high-contrast-mode-line t)
 (load-theme 'solarized-dark t)
 
-(toggle-frame-maximized)
 (set-frame-font "Source Code Pro 11")
-(split-window-right)
 (tool-bar-mode -1)
+(toggle-frame-maximized)
+(split-window-right)
 (blink-cursor-mode -1)
 (setq column-number-mode t)
 
