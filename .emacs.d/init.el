@@ -14,7 +14,7 @@
 (toggle-frame-maximized)
 (split-window-right)
 (switch-to-buffer-other-window "*Messages*")
-(previous-buffer)
+(switch-to-buffer-other-window "*scratch*")
 
 (setq column-number-mode t)
 (setq ring-bell-function 'ignore)
