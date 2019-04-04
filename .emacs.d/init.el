@@ -13,6 +13,8 @@
 (tool-bar-mode -1)
 (toggle-frame-maximized)
 (split-window-right)
+(switch-to-buffer-other-window "*Messages*")
+(previous-buffer)
 
 (setq column-number-mode t)
 (setq ring-bell-function 'ignore)
