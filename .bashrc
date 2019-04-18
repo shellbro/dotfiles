@@ -24,7 +24,7 @@ export ANSIBLE_NOCOWS=1
 alias cdb='cd ~/Git/bitbucket.org/shellbro'
 alias cdg='cd ~/Git/github.com/shellbro'
 alias df-pretty='df -Th -x tmpfs -x devtmpfs'
-alias docker-cleanup='docker image prune'
+alias docker-cleanup='docker image prune --force'
 alias docker-pull-all='docker images --format "{{.Repository}}:{{.Tag}}" | grep -Fv "<none>" | grep -v "^shellbro-local" | xargs -L 1 docker pull'
 alias dropbox='docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox'
 alias ec='emacsclient -n'
