@@ -49,7 +49,7 @@
       type = HPaned
     [[[terminal0]]]
       command = ""
-      directory = ""
+      directory = /home/shellbro/Git/bitbucket.org/shellbro
       order = 0
       parent = child2
       profile = default
@@ -57,7 +57,7 @@
       uuid = 7ff45a57-57b8-49ec-bdec-c8560661fc58
     [[[terminal1]]]
       command = ""
-      directory = ""
+      directory = /home/shellbro/Git/github.com/shellbro
       order = 1
       parent = child2
       profile = default
@@ -65,7 +65,7 @@
       uuid = c837b257-db26-47d9-ac91-78d08f8e12a7
     [[[terminal2]]]
       command = ""
-      directory = /home/shellbro/Git/github.com/shellbro
+      directory = ""
       order = 0
       parent = child3
       profile = default
@@ -73,7 +73,7 @@
       uuid = 50c495da-47db-4078-bf5d-7fbb0689a3ee
     [[[terminal3]]]
       command = ""
-      directory = /home/shellbro/Git/bitbucket.org/shellbro
+      directory = /home/shellbro/Playground
       order = 1
       parent = child3
       profile = default
