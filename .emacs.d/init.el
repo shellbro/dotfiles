@@ -43,6 +43,9 @@
 (setq tramp-default-method "ssh")
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x O") (lambda ()
+                                (interactive)
+                                (other-window -1)))
 
 ;; HideShow (hs), built-in
 (add-hook 'prog-mode-hook
