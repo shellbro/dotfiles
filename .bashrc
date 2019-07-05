@@ -21,8 +21,9 @@ export EDITOR
 export ANSIBLE_NOCOWS=1
 
 # User specific aliases and functions
-alias cdb='cd ~/Git/bitbucket.org/shellbro'
-alias cdg='cd ~/Git/github.com/shellbro'
+alias cdb='cd ~/Git/bitbucket.org'
+alias cdg='cd ~/Git/github.com'
+alias cdl='cd ~/Git/gitlab.com'
 alias df-pretty='df -Th -x tmpfs -x devtmpfs'
 alias docker-cleanup='docker image prune --force'
 alias docker-pull-all='docker images --format "{{.Repository}}:{{.Tag}}" | grep -Fv "<none>" | grep -v "^local/" | xargs -L 1 docker pull'
