@@ -1,30 +1,31 @@
 (require 'package)
+
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
 (setq inhibit-startup-screen t)
-
-(load "server")
-(add-hook 'server-switch-hook 'raise-frame)
-(unless (server-running-p)
-  (server-start))
-
-(tool-bar-mode -1)
-(toggle-frame-maximized)
-(split-window-right)
-(switch-to-buffer-other-window "*Messages*")
-(switch-to-buffer-other-window "*scratch*")
-
-(setq column-number-mode t)
 (setq ring-bell-function 'ignore)
+(setq column-number-mode t)
+(tool-bar-mode -1)
 (blink-cursor-mode -1)
 
 (setq solarized-distinct-fringe-background t)
 (setq solarized-high-contrast-mode-line t)
 (load-theme 'solarized-dark t)
-
 (set-frame-font "Source Code Pro 11")
+
+(toggle-frame-maximized)
+(split-window-right)
+(switch-to-buffer-other-window "*Messages*")
+(switch-to-buffer-other-window "*scratch*")
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x O") (lambda ()
+                                (interactive)
+                                (other-window -1)))
+
+(setq tramp-default-method "ssh")
 
 ;; Require newline at the end of a file
 (setq require-final-newline t)
@@ -40,51 +41,62 @@
 ;; a ~ appended
 (setq make-backup-files nil)
 
-(setq tramp-default-method "ssh")
+(require 'use-package)
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x O") (lambda ()
-                                (interactive)
-                                (other-window -1)))
+(use-package company
+  :ensure t
+  :hook (after-init . global-company-mode))
 
-;; HideShow (hs), built-in
-(add-hook 'prog-mode-hook
-          (lambda()
-            (local-set-key (kbd "C-c <right>") 'hs-show-block)
-            (local-set-key (kbd "C-c <left>") 'hs-hide-block)
-            (local-set-key (kbd "C-c <up>") 'hs-hide-all)
-            (local-set-key (kbd "C-c <down>") 'hs-show-all)
-            (hs-minor-mode t)))
+(use-package cider
+  :ensure t
+  :config
+  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
+  (setq cider-save-file-on-load nil)
+  (setq nrepl-hide-special-buffers t))
 
-;; Whitespace (WS), built-in
-(setq whitespace-style '(face tabs empty trailing lines-tail))
-(add-hook 'after-init-hook 'global-whitespace-mode)
+(use-package smartparens
+  :ensure t
+  :hook ((prog-mode cider-repl-mode) . smartparens-mode))
 
-;; aggressive-indent (=>)
-(add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
-(add-hook 'cider-repl-mode-hook 'aggressive-indent-mode)
-(add-hook 'clojure-mode-hook 'aggressive-indent-mode)
+(use-package rainbow-delimiters
+  :ensure t
+  :hook ((prog-mode cider-repl-mode) . rainbow-delimiters-mode))
 
-;; CIDER & (N)REPL (cider)
-(setq cider-repl-display-in-current-window t)
-(setq cider-repl-pop-to-buffer-on-connect nil)
-(setq cider-save-file-on-load nil)
-(setq nrepl-hide-special-buffers t)
+(use-package aggressive-indent
+  :ensure t
+  :hook ((emacs-lisp-mode clojure-mode cider-repl-mode) .
+         aggressive-indent-mode))
 
-;; company (company)
-(add-hook 'after-init-hook 'global-company-mode)
+(use-package whitespace
+  :hook (after-init . global-whitespace-mode)
+  :config
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
-;; NeoTree
-(setq neo-theme 'icons)
-(add-hook 'after-init-hook 'neotree-toggle)
+(use-package hideshow
+  :init
+  (add-hook 'prog-mode-hook
+            (lambda()
+              (local-set-key (kbd "C-c <right>") 'hs-show-block)
+              (local-set-key (kbd "C-c <left>") 'hs-hide-block)
+              (local-set-key (kbd "C-c <up>") 'hs-hide-all)
+              (local-set-key (kbd "C-c <down>") 'hs-show-all)
+              (hs-minor-mode t))))
 
-;; rainbow-delimiters (nil)
-(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(use-package neotree
+  :ensure t
+  :hook (after-init . neotree-toggle)
+  :bind ([f8] . neotree-refresh)
+  :config
+  (setq neo-theme 'icons)
+  (setq neo-autorefresh nil))
 
-;; Smartparens (SP)
-(add-hook 'cider-repl-mode-hook 'smartparens-mode)
-(add-hook 'prog-mode-hook 'smartparens-mode)
+(use-package server
+  :init
+  (server-mode 1)
+  :hook (server-switch-hook . 'raise-frame)
+  :config
+  (unless (server-running-p)
+    (server-start)))
 
 ;; FIXME:
 (require 'sgml-mode)
@@ -111,7 +123,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (all-the-icons rainbow-delimiters aggressive-indent smartparens cider yaml-mode markdown-mode neotree magit company solarized-theme))))
+    (use-package all-the-icons rainbow-delimiters aggressive-indent smartparens cider yaml-mode markdown-mode neotree magit company solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
