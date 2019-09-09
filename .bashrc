@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
@@ -39,8 +39,6 @@ alias oc-whoami='oc whoami -c && oc whoami -t && oc whoami'
 alias pia-de-berlin-up='nmcli con up "PIA - DE Berlin"'
 alias pia-de-berlin-down='nmcli con down "PIA - DE Berlin"'
 alias sudo='sudo '
-alias work-g-up='nmcli con up "Work - G (PPTP)"'
-alias work-g-down='nmcli con down "Work - G (PPTP)"'
 alias work-k-up='nmcli con up "Work - K (L2TP with IPsec)"'
 alias work-k-down='nmcli con down "Work - K (L2TP with IPsec)"'
 alias work-k2-up='nmcli con up "Work - K (PPTP)"'
