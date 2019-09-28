@@ -73,14 +73,12 @@
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
 (use-package hideshow
-  :init
-  (add-hook 'prog-mode-hook
-            (lambda()
-              (local-set-key (kbd "C-c <right>") 'hs-show-block)
-              (local-set-key (kbd "C-c <left>") 'hs-hide-block)
-              (local-set-key (kbd "C-c <up>") 'hs-hide-all)
-              (local-set-key (kbd "C-c <down>") 'hs-show-all)
-              (hs-minor-mode t))))
+  :hook (prog-mode . (lambda()
+                       (local-set-key (kbd "C-c <right>") 'hs-show-block)
+                       (local-set-key (kbd "C-c <left>") 'hs-hide-block)
+                       (local-set-key (kbd "C-c <up>") 'hs-hide-all)
+                       (local-set-key (kbd "C-c <down>") 'hs-show-all)
+                       (hs-minor-mode t))))
 
 (use-package sgml-mode
   :init
