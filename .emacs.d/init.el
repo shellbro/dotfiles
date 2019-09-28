@@ -82,12 +82,31 @@
               (local-set-key (kbd "C-c <down>") 'hs-show-all)
               (hs-minor-mode t))))
 
+(use-package sgml-mode
+  :init
+  (add-to-list 'hs-special-modes-alist
+               '(nxml-mode
+                 "<!--\\|<[^/>]*[^/]>"
+                 "-->\\|</[^/>]*[^/]>"
+
+                 "<!--"
+                 sgml-skip-tag-forward
+                 nil))
+  :config
+  (add-hook 'nxml-mode-hook
+            (lambda()
+              (local-set-key (kbd "C-c <right>") 'hs-show-block)
+              (local-set-key (kbd "C-c <left>") 'hs-hide-block)
+              (local-set-key (kbd "C-c <up>") 'hs-hide-all)
+              (local-set-key (kbd "C-c <down>") 'hs-show-all)
+              (hs-minor-mode t))))
+
 (use-package neotree
   :ensure t
   :hook (after-init . neotree-toggle)
   :bind ([f8] . neotree-refresh)
   :config
-  (setq neo-theme 'icons)
+  (setq neo-theme 'ascii)
   (setq neo-autorefresh nil))
 
 (use-package server
@@ -97,24 +116,6 @@
   :config
   (unless (server-running-p)
     (server-start)))
-
-;; TODO:
-(require 'sgml-mode)
-(add-to-list 'hs-special-modes-alist
-             '(nxml-mode
-               "<!--\\|<[^/>]*[^/]>"
-               "-->\\|</[^/>]*[^/]>"
-
-               "<!--"
-               sgml-skip-tag-forward
-               nil))
-(add-hook 'nxml-mode-hook
-          (lambda()
-            (local-set-key (kbd "C-c <right>") 'hs-show-block)
-            (local-set-key (kbd "C-c <left>") 'hs-hide-block)
-            (local-set-key (kbd "C-c <up>") 'hs-hide-all)
-            (local-set-key (kbd "C-c <down>") 'hs-show-all)
-            (hs-minor-mode t)))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
