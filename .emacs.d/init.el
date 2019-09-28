@@ -5,15 +5,12 @@
 (package-initialize)
 
 (setq inhibit-startup-screen t)
-(setq ring-bell-function 'ignore)
-(setq column-number-mode t)
 (tool-bar-mode -1)
+(setq column-number-mode t)
 (blink-cursor-mode -1)
-
-(setq solarized-distinct-fringe-background t)
-(setq solarized-high-contrast-mode-line t)
-(load-theme 'solarized-dark t)
+(setq ring-bell-function 'ignore)
 (set-frame-font "Source Code Pro 11")
+(setq tramp-default-method "ssh")
 
 (toggle-frame-maximized)
 (split-window-right)
@@ -25,14 +22,12 @@
                                 (interactive)
                                 (other-window -1)))
 
-(setq tramp-default-method "ssh")
-
-;; Require newline at the end of a file
-(setq require-final-newline t)
-
 ;; Don't use tabs to indent (in Markdown mode, for example)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+
+;; Require newline at the end of a file
+(setq require-final-newline t)
 
 ;; Turn off storing auto-save files intermittently with a file name on the
 ;; form #file#
@@ -42,6 +37,11 @@
 (setq make-backup-files nil)
 
 (require 'use-package)
+
+(use-package color-theme-sanityinc-tomorrow
+  :ensure t
+  :config
+  (load-theme 'sanityinc-tomorrow-night t))
 
 (use-package company
   :ensure t
@@ -98,7 +98,7 @@
   (unless (server-running-p)
     (server-start)))
 
-;; FIXME:
+;; TODO:
 (require 'sgml-mode)
 (add-to-list 'hs-special-modes-alist
              '(nxml-mode
@@ -116,17 +116,5 @@
             (local-set-key (kbd "C-c <down>") 'hs-show-all)
             (hs-minor-mode t)))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (use-package all-the-icons rainbow-delimiters aggressive-indent smartparens cider yaml-mode markdown-mode neotree magit company solarized-theme))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
