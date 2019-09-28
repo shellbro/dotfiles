@@ -92,14 +92,12 @@
                  "<!--"
                  sgml-skip-tag-forward
                  nil))
-  :config
-  (add-hook 'nxml-mode-hook
-            (lambda()
-              (local-set-key (kbd "C-c <right>") 'hs-show-block)
-              (local-set-key (kbd "C-c <left>") 'hs-hide-block)
-              (local-set-key (kbd "C-c <up>") 'hs-hide-all)
-              (local-set-key (kbd "C-c <down>") 'hs-show-all)
-              (hs-minor-mode t))))
+  :hook (nxml-mode . (lambda()
+                       (local-set-key (kbd "C-c <right>") 'hs-show-block)
+                       (local-set-key (kbd "C-c <left>") 'hs-hide-block)
+                       (local-set-key (kbd "C-c <up>") 'hs-hide-all)
+                       (local-set-key (kbd "C-c <down>") 'hs-show-all)
+                       (hs-minor-mode t))))
 
 (use-package neotree
   :ensure t
