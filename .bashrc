@@ -31,6 +31,8 @@ alias dropbox='docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/
 alias ec='emacsclient -n'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
+alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
+alias ip-stats-wifi='ip -s -h link show wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
 alias k=kubectl
