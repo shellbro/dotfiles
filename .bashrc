@@ -21,11 +21,14 @@ export EDITOR
 export ANSIBLE_NOCOWS=1
 
 # User specific aliases and functions
+alias c-cleanup='docker container prune --force && sudo podman container prune'
+alias c-images-cleanup='docker image prune --force && sudo podman image prune'
+alias c-images='docker images && sudo podman images'
+alias c='docker ps -a && sudo podman ps -a'
 alias cdb='cd ~/Git/bitbucket.org'
 alias cdh='cd ~/Git/github.com'
 alias cdl='cd ~/Git/gitlab.com'
 alias df-pretty='df -Th -x tmpfs -x devtmpfs'
-alias docker-cleanup='docker image prune --force'
 alias docker-pull-all='docker images --format "{{.Repository}}:{{.Tag}}" | grep -Fv "<none>" | grep -v "^local/" | xargs -L 1 docker pull'
 alias dropbox='docker exec -ti -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox'
 alias ec='emacsclient -n'
