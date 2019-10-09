@@ -22,7 +22,7 @@ export ANSIBLE_NOCOWS=1
 
 # User specific aliases and functions
 alias cdb='cd ~/Git/bitbucket.org'
-alias cdg='cd ~/Git/github.com'
+alias cdh='cd ~/Git/github.com'
 alias cdl='cd ~/Git/gitlab.com'
 alias df-pretty='df -Th -x tmpfs -x devtmpfs'
 alias docker-cleanup='docker image prune --force'
@@ -33,11 +33,15 @@ alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
+alias k=kubectl
+complete -F __start_kubectl k
+alias k-context='kubectl config get-contexts | grep -e ^CURRENT -e "^\*" | tr -s " " | cut -d " " -f 2,5 | column -t'
+alias k-contexts='kubectl config get-contexts'
+alias k-context-switch='kubectl config use-context'
+alias k-ns-switch='kubectl config set-context --current --namespace'
 alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias oc-login='oc login https://localhost:8443 -u developer -p foo'
 alias oc-whoami='oc whoami -c && oc whoami -t && oc whoami'
-alias pia-de-berlin-up='nmcli con up "PIA - DE Berlin"'
-alias pia-de-berlin-down='nmcli con down "PIA - DE Berlin"'
 alias sudo='sudo '
 alias work-k-up='nmcli con up "Work - K (L2TP with IPsec)"'
 alias work-k-down='nmcli con down "Work - K (L2TP with IPsec)"'
