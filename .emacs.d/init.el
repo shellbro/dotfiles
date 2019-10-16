@@ -51,8 +51,7 @@
   :ensure t
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
-  (setq cider-save-file-on-load nil)
-  (setq nrepl-hide-special-buffers t))
+  (setq cider-save-file-on-load nil))
 
 (use-package smartparens
   :ensure t
