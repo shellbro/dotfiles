@@ -39,10 +39,9 @@ alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
 alias k=kubectl
 complete -F __start_kubectl k
-alias k-context='kubectl config get-contexts | grep -e ^CURRENT -e "^\*" | tr -s " " | cut -d " " -f 2,5 | column -t'
-alias k-contexts='kubectl config get-contexts'
-alias k-context-switch='kubectl config use-context'
-alias k-ns-switch='kubectl config set-context --current --namespace'
+alias k-gke='kubectl config use-context gke'
+alias k-minikube='kubectl config use-context minikube'
+alias k-ns='kubectl config set-context --current --namespace'
 alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias oc-login='oc login https://localhost:8443 -u developer -p foo'
 alias oc-whoami='{ oc whoami -c && oc whoami -t && oc whoami; }'
