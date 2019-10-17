@@ -37,11 +37,11 @@ alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
 alias ip-stats-wifi='ip -s -h link show wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
-alias k=kubectl
-complete -F __start_kubectl k
 alias k-gke='kubectl config use-context gke'
 alias k-minikube='kubectl config use-context minikube'
 alias k-ns='kubectl config set-context --current --namespace'
+alias k=kubectl
+complete -F __start_kubectl k
 alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias oc-login='oc login https://localhost:8443 -u developer -p foo'
 alias oc-whoami='{ oc whoami -c && oc whoami -t && oc whoami; }'
