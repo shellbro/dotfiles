@@ -12,10 +12,10 @@
 (set-frame-font "Source Code Pro 11")
 (setq tramp-default-method "ssh")
 
+(setq initial-major-mode 'text-mode)
 (toggle-frame-maximized)
 (split-window-right)
 (switch-to-buffer-other-window "*Messages*")
-(switch-to-buffer-other-window "*scratch*")
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x O") (lambda ()
