@@ -21,6 +21,7 @@
 (global-set-key (kbd "C-x O") (lambda ()
                                 (interactive)
                                 (other-window -1)))
+(global-set-key (kbd "C-x C-S-f") 'find-file-other-window)
 
 ;; Don't use tabs to indent (in Markdown mode, for example)
 (setq-default indent-tabs-mode nil)
