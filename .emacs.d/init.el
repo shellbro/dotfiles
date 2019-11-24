@@ -10,9 +10,9 @@
 (blink-cursor-mode -1)
 (setq ring-bell-function 'ignore)
 (set-frame-font "Source Code Pro 11")
+(setq initial-major-mode 'text-mode)
 (setq tramp-default-method "ssh")
 
-(setq initial-major-mode 'text-mode)
 (toggle-frame-maximized)
 (split-window-right)
 (switch-to-buffer-other-window "*Messages*")
@@ -21,7 +21,11 @@
 (global-set-key (kbd "C-x O") (lambda ()
                                 (interactive)
                                 (other-window -1)))
-(global-set-key (kbd "C-x C-S-f") 'find-file-other-window)
+
+(global-set-key (kbd "C-x C-S-f") (lambda ()
+                                    (call-interactively 'find-file-other-window)
+                                    (interactive)
+                                    (other-window -1)))
 
 (defun kill-buffer-right-window ()
   (interactive)
