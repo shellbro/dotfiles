@@ -23,12 +23,20 @@
                                 (other-window -1)))
 (global-set-key (kbd "C-x C-S-f") 'find-file-other-window)
 
-;; Don't use tabs to indent (in Markdown mode, for example)
+(defun kill-buffer-other-window ()
+  (interactive)
+  (let ((win-curr (selected-window))
+        (win-other (next-window)))
+    (select-window win-other)
+    (kill-this-buffer)
+    (select-window win-curr)))
+(global-set-key (kbd "C-x K") 'kill-buffer-other-window)
+
+(setq require-final-newline t)
+
+;; Do not use tabs for indentation (for example in Markdown mode)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
-
-;; Require newline at the end of a file
-(setq require-final-newline t)
 
 ;; Turn off storing auto-save files intermittently with a file name on the
 ;; form #file#
