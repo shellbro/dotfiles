@@ -23,14 +23,14 @@
                                 (other-window -1)))
 (global-set-key (kbd "C-x C-S-f") 'find-file-other-window)
 
-(defun kill-buffer-other-window ()
+(defun kill-buffer-right-window ()
   (interactive)
   (let ((win-curr (selected-window))
         (win-other (next-window)))
     (select-window win-other)
     (kill-this-buffer)
     (select-window win-curr)))
-(global-set-key (kbd "C-x K") 'kill-buffer-other-window)
+(global-set-key (kbd "C-x K") 'kill-buffer-right-window)
 
 (setq require-final-newline t)
 
