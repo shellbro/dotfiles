@@ -36,11 +36,10 @@
     (select-window win-curr)))
 (global-set-key (kbd "C-x K") 'kill-buffer-right-window)
 
-(setq require-final-newline t)
-
-;; Do not use tabs for indentation (for example in Markdown mode)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+(setq sh-basic-offset 2)
+(setq require-final-newline t)
 
 ;; Turn off storing auto-save files intermittently with a file name on the
 ;; form #file#
