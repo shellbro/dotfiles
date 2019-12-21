@@ -70,6 +70,7 @@
   :ensure t
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
+  (setq cider-repl-display-help-banner nil)
   (setq cider-save-file-on-load nil))
 
 (use-package smartparens
