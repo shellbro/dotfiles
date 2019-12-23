@@ -57,6 +57,10 @@
   :config
   (load-theme 'sanityinc-tomorrow-night t))
 
+(use-package winner
+  :init
+  (winner-mode))
+
 (use-package buffer-move
   :ensure t
   :bind (("C-S-<up>" . buf-move-up)
