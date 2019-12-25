@@ -11,6 +11,7 @@
 (setq ring-bell-function 'ignore)
 (set-frame-font "Source Code Pro 11")
 (setq initial-major-mode 'text-mode)
+(setq python-shell-interpreter "python3")
 (setq tramp-default-method "ssh")
 
 (toggle-frame-maximized)
@@ -41,6 +42,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq sh-basic-offset 2)
+(setq python-indent-offset 2)
 (setq require-final-newline t)
 
 ;; Turn off storing auto-save files intermittently with a file name on the
