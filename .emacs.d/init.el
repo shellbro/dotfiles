@@ -11,6 +11,7 @@
 (setq ring-bell-function 'ignore)
 (set-frame-font "Source Code Pro 11")
 (setq initial-major-mode 'text-mode)
+(setq initial-scratch-message nil)
 (setq python-shell-interpreter "python3")
 (setq tramp-default-method "ssh")
 
