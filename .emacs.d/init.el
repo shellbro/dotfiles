@@ -92,8 +92,19 @@
   :hook ((emacs-lisp-mode clojure-mode cider-repl-mode) .
          aggressive-indent-mode))
 
+(defun cider-connect-if-repl-running ()
+  (let ((path (concat default-directory ".nrepl-port")))
+    (when (file-exists-p path)
+      (let ((host "localhost")
+            (port (with-temp-buffer
+                    (insert-file-contents path)
+                    (buffer-string))))
+        (when (= 0 (call-process "nc" nil nil nil "-z" host port))
+          (cider-connect '(:host "localhost" :port "2000")))))))
+
 (use-package cider
   :ensure t
+  :hook (clojure-mode . cider-connect-if-repl-running)
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
   (setq cider-repl-display-help-banner nil)
@@ -137,7 +148,7 @@
 (use-package server
   :init
   (server-mode 1)
-  :hook (server-switch-hook . 'raise-frame)
+  :hook (server-switch-hook . raise-frame)
   :config
   (unless (server-running-p)
     (server-start)))
