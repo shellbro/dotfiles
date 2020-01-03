@@ -93,7 +93,7 @@
          aggressive-indent-mode))
 
 (defun cider-connect-if-repl-running ()
-  (let ((path (concat default-directory ".nrepl-port")))
+  (let ((path (concat default-directory "../../.nrepl-port")))
     (when (file-exists-p path)
       (let ((host "localhost")
             (port (with-temp-buffer
