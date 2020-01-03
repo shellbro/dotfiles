@@ -38,14 +38,11 @@ alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
 alias ip-stats-wifi='ip -s -h link show wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
-alias k-current-set='kubectl config set-context --current'
-complete -F __start_kubectl k-current-set
-alias k-current='{ kubectl config current-context && kubectl config view --minify -o "jsonpath={..namespace}" && echo; }'
-alias k-gke='kubectl config use-context gke'
-alias k-minikube='kubectl config use-context minikube'
 alias k-nodes='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name'
 alias k=kubectl
 complete -F __start_kubectl k
+alias kctx=kubectx
+alias kns=kubens
 alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias m=minikube
 complete -F __start_minikube m
