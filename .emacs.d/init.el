@@ -64,13 +64,6 @@
   :init
   (winner-mode))
 
-(use-package buffer-move
-  :ensure t
-  :bind (("C-S-<up>" . buf-move-up)
-         ("C-S-<down>" . buf-move-down)
-         ("C-S-<left>" . buf-move-left)
-         ("C-S-<right>" . buf-move-right)))
-
 (use-package company
   :ensure t
   :hook (after-init . global-company-mode))
@@ -80,6 +73,7 @@
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
   (setq cider-repl-display-help-banner nil)
+  (setq cider-auto-select-error-buffer nil)
   (setq cider-save-file-on-load nil))
 
 (use-package smartparens
@@ -102,10 +96,10 @@
 
 (use-package hideshow
   :hook (prog-mode . (lambda()
-                       (local-set-key (kbd "C-c <right>") 'hs-show-block)
-                       (local-set-key (kbd "C-c <left>") 'hs-hide-block)
-                       (local-set-key (kbd "C-c <up>") 'hs-hide-all)
-                       (local-set-key (kbd "C-c <down>") 'hs-show-all)
+                       (local-set-key (kbd "C-S-<right>") 'hs-show-block)
+                       (local-set-key (kbd "C-S-<left>") 'hs-hide-block)
+                       (local-set-key (kbd "C-S-<up>") 'hs-hide-all)
+                       (local-set-key (kbd "C-S-<down>") 'hs-show-all)
                        (hs-minor-mode t))))
 
 (use-package sgml-mode
