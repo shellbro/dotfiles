@@ -18,6 +18,7 @@
 (toggle-frame-maximized)
 (split-window-right)
 (switch-to-buffer-other-window "*Messages*")
+(add-hook 'emacs-startup-hook '(lambda () (other-window 1)))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x O") (lambda ()
@@ -34,7 +35,7 @@
 (defun kill-buffer-other-window ()
   (interactive)
   (let ((win-curr (selected-window)))
-    (switch-to-buffer-other-window "foo")
+    (switch-to-buffer-other-window "foo2707")
     (kill-this-buffer)
     (kill-this-buffer)
     (select-window win-curr)))
