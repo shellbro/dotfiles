@@ -101,7 +101,7 @@
                     (insert-file-contents path)
                     (buffer-string))))
         (when (= 0 (call-process "nc" nil nil nil "-z" host port))
-          (cider-connect '(:host "localhost" :port "2000")))))))
+          (cider-connect `(:host ,host :port ,port)))))))
 
 (use-package cider
   :ensure t
