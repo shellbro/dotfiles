@@ -6,13 +6,23 @@
 
 (setq inhibit-startup-screen t)
 (tool-bar-mode -1)
-(setq column-number-mode t)
 (blink-cursor-mode -1)
 (setq ring-bell-function 'ignore)
+(setq column-number-mode t)
 (set-frame-font "Source Code Pro 11")
+
+;; Disable auto-save files (#filename#)
+(setq auto-save-default nil)
+;; Disable backup files on save (filename~)
+(setq make-backup-files nil)
+
+(setq require-final-newline t)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+
 (setq initial-major-mode 'text-mode)
 (setq initial-scratch-message nil)
-(setq python-shell-interpreter "python3")
+
 (setq tramp-default-method "ssh")
 
 (toggle-frame-maximized)
@@ -41,19 +51,6 @@
     (select-window win-curr)))
 (global-set-key (kbd "C-x K") 'kill-buffer-other-window)
 
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq sh-basic-offset 2)
-(setq python-indent-offset 2)
-(setq require-final-newline t)
-
-;; Turn off storing auto-save files intermittently with a file name on the
-;; form #file#
-(setq auto-save-default nil)
-;; Turn off storing backup files (on save) under the original name with
-;; a ~ appended
-(setq make-backup-files nil)
-
 (require 'use-package)
 
 (use-package color-theme-sanityinc-tomorrow
@@ -69,6 +66,11 @@
   :init
   (winner-mode))
 
+(use-package whitespace
+  :hook (after-init . global-whitespace-mode)
+  :config
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
+
 (use-package hideshow
   :hook (prog-mode . (lambda()
                        (local-set-key (kbd "C-S-<right>") 'hs-show-block)
@@ -76,19 +78,6 @@
                        (local-set-key (kbd "C-S-<up>") 'hs-hide-all)
                        (local-set-key (kbd "C-S-<down>") 'hs-show-all)
                        (hs-minor-mode t))))
-
-(use-package whitespace
-  :hook (after-init . global-whitespace-mode)
-  :config
-  (setq whitespace-style '(face tabs empty trailing lines-tail)))
-
-(use-package cider
-  :ensure t
-  :config
-  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
-  (setq cider-repl-display-help-banner nil)
-  (setq cider-auto-select-error-buffer nil)
-  (setq cider-save-file-on-load nil))
 
 (use-package smartparens
   :ensure t
@@ -102,6 +91,23 @@
   :ensure t
   :hook ((emacs-lisp-mode clojure-mode cider-repl-mode) .
          aggressive-indent-mode))
+
+(use-package cider
+  :ensure t
+  :config
+  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
+  (setq cider-repl-display-help-banner nil)
+  (setq cider-auto-select-error-buffer nil)
+  (setq cider-save-file-on-load nil))
+
+(use-package sh-script
+  :config
+  (setq sh-basic-offset 2))
+
+(use-package python
+  :config
+  (setq python-shell-interpreter "python3")
+  (setq python-indent-offset 2))
 
 (use-package sgml-mode
   :init
