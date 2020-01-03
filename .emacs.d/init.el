@@ -61,13 +61,26 @@
   :config
   (load-theme 'sanityinc-tomorrow-night t))
 
+(use-package company
+  :ensure t
+  :hook (after-init . global-company-mode))
+
 (use-package winner
   :init
   (winner-mode))
 
-(use-package company
-  :ensure t
-  :hook (after-init . global-company-mode))
+(use-package hideshow
+  :hook (prog-mode . (lambda()
+                       (local-set-key (kbd "C-S-<right>") 'hs-show-block)
+                       (local-set-key (kbd "C-S-<left>") 'hs-hide-block)
+                       (local-set-key (kbd "C-S-<up>") 'hs-hide-all)
+                       (local-set-key (kbd "C-S-<down>") 'hs-show-all)
+                       (hs-minor-mode t))))
+
+(use-package whitespace
+  :hook (after-init . global-whitespace-mode)
+  :config
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
 (use-package cider
   :ensure t
@@ -89,19 +102,6 @@
   :ensure t
   :hook ((emacs-lisp-mode clojure-mode cider-repl-mode) .
          aggressive-indent-mode))
-
-(use-package whitespace
-  :hook (after-init . global-whitespace-mode)
-  :config
-  (setq whitespace-style '(face tabs empty trailing lines-tail)))
-
-(use-package hideshow
-  :hook (prog-mode . (lambda()
-                       (local-set-key (kbd "C-S-<right>") 'hs-show-block)
-                       (local-set-key (kbd "C-S-<left>") 'hs-hide-block)
-                       (local-set-key (kbd "C-S-<up>") 'hs-hide-all)
-                       (local-set-key (kbd "C-S-<down>") 'hs-show-all)
-                       (hs-minor-mode t))))
 
 (use-package sgml-mode
   :init
