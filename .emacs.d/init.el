@@ -94,7 +94,8 @@
 
 (defun cider-connect-if-repl-running ()
   (let ((path (concat default-directory "../../.nrepl-port")))
-    (when (file-exists-p path)
+    (when (and (string= (file-name-nondirectory (buffer-file-name)) "core.clj")
+               (file-exists-p path))
       (let ((host "localhost")
             (port (with-temp-buffer
                     (insert-file-contents path)
