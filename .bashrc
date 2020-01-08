@@ -38,7 +38,7 @@ alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
 alias ip-stats-wifi='ip -s -h link show wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
-alias k-nodes='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name'
+alias k-nodes='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name | (read -r; printf "%s\n" "$REPLY"; sort)'
 alias k=kubectl
 complete -F __start_kubectl k
 alias kctx=kubectx
