@@ -154,5 +154,12 @@
   (unless (server-running-p)
     (server-start)))
 
+(use-package auto-package-update
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t
+        auto-package-update-interval 3)
+  (auto-package-update-maybe))
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
