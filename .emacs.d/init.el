@@ -88,10 +88,15 @@
   :ensure t
   :hook ((prog-mode cider-repl-mode) . rainbow-delimiters-mode))
 
+(defun aggressive-indent-indent-buffer ()
+  (interactive)
+  (aggressive-indent-indent-region-and-on (point-min) (point-max)))
+
 (use-package aggressive-indent
   :ensure t
   :hook ((emacs-lisp-mode clojure-mode cider-repl-mode) .
-         aggressive-indent-mode))
+         aggressive-indent-mode)
+  :bind ("C-c i" . aggressive-indent-indent-buffer))
 
 (defun cider-connect-if-repl-running ()
   (let ((path (concat default-directory "../../.nrepl-port")))
