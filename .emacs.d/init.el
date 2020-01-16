@@ -24,6 +24,7 @@
 (setq initial-scratch-message nil)
 
 (setq tramp-default-method "ssh")
+(put 'narrow-to-region 'disabled nil)
 
 (toggle-frame-maximized)
 (split-window-right)
