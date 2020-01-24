@@ -50,6 +50,7 @@ alias m=minikube
 complete -F __start_minikube m
 alias oc-login='oc login https://localhost:8443 -u developer -p foo'
 alias oc-whoami='{ oc whoami -c && oc whoami -t && oc whoami; }'
+alias repl='docker run --rm --detach-keys=ctrl-@ -it -v $HOME/.m2:/home/app-user/.m2 shellbro/devbox-clojure'
 alias sudo='sudo '
 alias watch='watch '
 alias work-k-up='nmcli con up "Work - K (PPTP)"'
