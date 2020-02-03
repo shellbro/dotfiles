@@ -20,11 +20,11 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
+(put 'narrow-to-region 'disabled nil)
+(setq tramp-default-method "ssh")
+
 (setq initial-major-mode 'text-mode)
 (setq initial-scratch-message nil)
-
-(setq tramp-default-method "ssh")
-(put 'narrow-to-region 'disabled nil)
 
 (toggle-frame-maximized)
 (split-window-right)
@@ -119,7 +119,6 @@
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
   (setq cider-repl-display-help-banner nil)
-  (setq cider-auto-select-error-buffer nil)
   (setq cider-save-file-on-load nil))
 
 (use-package sh-script
