@@ -31,17 +31,11 @@
 (switch-to-buffer-other-window "*Messages*")
 (add-hook 'emacs-startup-hook '(lambda () (other-window 1)))
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x O") (lambda ()
-                                (interactive)
-                                (other-window -1)))
-
 (defun find-file-other-window-and-return ()
   (interactive)
   (let ((win-curr (selected-window)))
     (call-interactively 'find-file-other-window)
     (select-window win-curr)))
-(global-set-key (kbd "C-x C-S-f") 'find-file-other-window-and-return)
 
 (defun kill-buffer-other-window ()
   (interactive)
@@ -50,7 +44,11 @@
     (kill-this-buffer)
     (kill-this-buffer)
     (select-window win-curr)))
-(global-set-key (kbd "C-x K") 'kill-buffer-other-window)
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-c o") (lambda () (interactive) (other-window -1)))
+(global-set-key (kbd "C-c C-f") 'find-file-other-window-and-return)
+(global-set-key (kbd "C-c k") 'kill-buffer-other-window)
 
 (require 'use-package)
 
@@ -70,7 +68,8 @@
 
 (use-package company
   :ensure t
-  :hook (after-init . global-company-mode))
+  :hook (after-init . global-company-mode)
+  :bind ("C-c c" . company-complete))
 
 (use-package flycheck
   :ensure t
