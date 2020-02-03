@@ -46,9 +46,9 @@
     (select-window win-curr)))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-c o") (lambda () (interactive) (other-window -1)))
-(global-set-key (kbd "C-c C-f") 'find-file-other-window-and-return)
-(global-set-key (kbd "C-c k") 'kill-buffer-other-window)
+(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
+(global-set-key (kbd "C-x C-S-f") 'find-file-other-window-and-return)
+(global-set-key (kbd "C-x K") 'kill-buffer-other-window)
 
 (require 'use-package)
 
@@ -139,10 +139,10 @@
                  sgml-skip-tag-forward
                  nil))
   :hook (nxml-mode . (lambda()
-                       (local-set-key (kbd "C-c <right>") 'hs-show-block)
-                       (local-set-key (kbd "C-c <left>") 'hs-hide-block)
-                       (local-set-key (kbd "C-c <up>") 'hs-hide-all)
-                       (local-set-key (kbd "C-c <down>") 'hs-show-all)
+                       (local-set-key (kbd "C-S-<right>") 'hs-show-block)
+                       (local-set-key (kbd "C-S-<left>") 'hs-hide-block)
+                       (local-set-key (kbd "C-S-<up>") 'hs-hide-all)
+                       (local-set-key (kbd "C-S-<down>") 'hs-show-all)
                        (hs-minor-mode t))))
 
 (use-package neotree
