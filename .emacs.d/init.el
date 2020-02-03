@@ -126,8 +126,7 @@
 
 (use-package python
   :config
-  (setq python-shell-interpreter "python3")
-  (setq python-indent-offset 2))
+  (setq python-shell-interpreter "python3"))
 
 (use-package sgml-mode
   :init
