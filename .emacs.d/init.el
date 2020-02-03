@@ -59,10 +59,6 @@
   :config
   (load-theme 'sanityinc-tomorrow-night t))
 
-(use-package company
-  :ensure t
-  :hook (after-init . global-company-mode))
-
 (use-package winner
   :init
   (winner-mode))
@@ -71,6 +67,14 @@
   :hook (after-init . global-whitespace-mode)
   :config
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
+
+(use-package company
+  :ensure t
+  :hook (after-init . global-company-mode))
+
+(use-package flycheck
+  :ensure t
+  :hook (after-init . global-flycheck-mode))
 
 (use-package hideshow
   :hook (prog-mode . (lambda()
