@@ -29,6 +29,8 @@ alias cdl='cd ~/Git/gitlab.com'
 alias df-pretty='df -Th -x tmpfs -x devtmpfs'
 alias dropbox='docker exec -it -e "LANG=en_US.UTF-8" dropbox /home/dropbox-user/bin/dropbox'
 alias ec='emacsclient -n'
+alias gcp-ssh='gcloud compute ssh'
+complete -F _complete_alias gcp-ssh
 alias i-prune='{ docker image prune -f && sudo podman image prune; }'
 alias i-prune-all='{ docker image prune -a -f && sudo podman image prune -a; }'
 alias i='{ docker images && sudo podman images; }'
