@@ -70,3 +70,8 @@ alias work-k-up='nmcli con up "Work - K (PPTP)"'
 alias work-k-down='nmcli con down "Work - K (PPTP)"'
 alias work-k2-up='nmcli con up "Work - K (L2TP with IPsec)"'
 alias work-k2-down='nmcli con down "Work - K (L2TP with IPsec)"'
+
+function burp {
+  java -jar ~/bin/burpsuite_community.jar &
+  chromium-browser --incognito --proxy-server=127.0.0.1:8080 http://burp &
+}
