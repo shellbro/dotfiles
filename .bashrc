@@ -62,6 +62,7 @@ complete -F __start_minikube m
 alias repl='docker run --rm --detach-keys=ctrl-@ -it\
   -v $HOME/.m2:/home/app-user/.m2 shellbro/devbox-clojure'
 alias sudo='sudo '
+alias ts='date +%s'
 alias wallpaper-size='xdpyinfo | grep dimensions | cut -d " " -f 7'
 alias watch='watch '
 alias wg-up='sudo wg-quick up wg0'
@@ -74,4 +75,8 @@ alias work-k2-down='nmcli con down "Work - K (L2TP with IPsec)"'
 function burp {
   java -jar ~/bin/burpsuite_community.jar &
   chromium-browser --incognito --proxy-server=127.0.0.1:8080 http://burp &
+}
+
+function ts2date {
+  date -d "@$1"
 }
