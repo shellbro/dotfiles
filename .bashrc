@@ -21,8 +21,8 @@ export EDITOR
 export ANSIBLE_NOCOWS=1
 
 # User specific aliases and functions
-alias c-prune='{ docker container prune -f && sudo podman container prune; }'
-alias c='{ docker ps -a && sudo podman ps -a; }'
+alias c-prune='{ docker container prune -f && podman container prune; }'
+alias c='{ docker ps -a && podman ps -a; }'
 alias cdb='cd ~/Git/bitbucket.org'
 alias cdh='cd ~/Git/github.com'
 alias cdl='cd ~/Git/gitlab.com'
@@ -37,9 +37,9 @@ alias ec='emacsclient -n'
 alias emacs-files='sudo find / -name "*~" -o -name "#*#" -o -name ".#*"'
 alias gcp-ssh='gcloud compute ssh'
 complete -F _complete_alias gcp-ssh
-alias i-prune='{ docker image prune -f && sudo podman image prune; }'
-alias i-prune-all='{ docker image prune -a -f && sudo podman image prune -a; }'
-alias i='{ docker images && sudo podman images; }'
+alias i-prune='{ docker image prune -f && podman image prune; }'
+alias i-prune-all='{ docker image prune -a -f && podman image prune -a; }'
+alias i='{ docker images && podman images; }'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
 alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
@@ -60,8 +60,6 @@ alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias m=minikube
 complete -F __start_minikube m
 alias podman='sudo podman'
-alias repl='docker run --rm --detach-keys=ctrl-@ -it\
-  -v $HOME/.m2:/home/app-user/.m2 shellbro/devbox-clojure'
 alias sudo='sudo '
 alias ts='date +%s'
 alias wallpaper-size='xdpyinfo | grep dimensions | cut -d " " -f 7'
@@ -76,6 +74,13 @@ alias work-k2-down='nmcli con down "Work - K (L2TP with IPsec)"'
 function burp {
   java -jar ~/bin/burpsuite_community.jar &
   chromium-browser --incognito --proxy-server=127.0.0.1:8080 http://burp &
+}
+
+function repl {
+  docker run --rm --detach-keys=ctrl-@ -it\
+         -v "$HOME/.m2:/home/app-user/.m2" --entrypoint=lein\
+         shellbro/devbox-clojure update-in :dependencies into "[$1]" --\
+         repl :start
 }
 
 function ts2date {
