@@ -39,7 +39,7 @@ alias gcp-ssh='gcloud compute ssh'
 complete -F _complete_alias gcp-ssh
 alias i-prune='{ docker image prune -f && podman image prune; }'
 alias i-prune-all='{ docker image prune -a -f && podman image prune -a; }'
-alias i='{ docker images && podman images; }'
+alias i='{ docker images --digests && podman images --digests; }'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
 alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
