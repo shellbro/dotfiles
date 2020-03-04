@@ -62,6 +62,7 @@ complete -F __start_minikube m
 alias podman='sudo podman'
 alias sudo='sudo '
 alias ts='date +%s'
+alias tree='tree -aF'
 alias wallpaper-size='xdpyinfo | grep dimensions | cut -d " " -f 7'
 alias watch='watch '
 alias wg-up='sudo wg-quick up wg0'
