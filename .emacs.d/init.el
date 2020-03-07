@@ -97,8 +97,7 @@
 
 (use-package aggressive-indent
   :ensure t
-  :hook ((emacs-lisp-mode clojure-mode cider-repl-mode) .
-         aggressive-indent-mode)
+  :hook ((emacs-lisp-mode clojure-mode) . aggressive-indent-mode)
   :bind ("C-c i" . aggressive-indent-indent-buffer))
 
 (defun cider-connect-if-repl-running ()
