@@ -35,6 +35,7 @@ alias dropbox='docker exec -it -e "LANG=en_US.UTF-8" dropbox\
 alias ec='emacsclient -n'
 # find backup files, auto-save files, interlock symbolic links
 alias emacs-files='sudo find / -name "*~" -o -name "#*#" -o -name ".#*"'
+alias external-ip='curl https://www.gorczyca.xyz/cgi-bin/ip'
 alias gcp-ssh='gcloud compute ssh'
 complete -F _complete_alias gcp-ssh
 alias i-prune='{ docker image prune -f && podman image prune; }'
@@ -46,6 +47,7 @@ alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
 alias ip-stats-wifi='ip -s -h link show wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
+alias journalctl-errors='journalctl -b -p 3'
 alias k-logs='kubectl logs --since=1s -f'
 complete -F _complete_alias k-logs
 alias k-nodes='kubectl get pod\
@@ -60,9 +62,14 @@ alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias m=minikube
 complete -F __start_minikube m
 alias podman='sudo podman'
+alias speedtest='speedtest-cli'
+alias systemctl-failed='SYSTEMD_COLORS=1 systemctl --state=failed | less -R'
 alias sudo='sudo '
 alias ts='date +%s'
 alias tree='tree -aF'
+alias update-history='sudo yum history'
+alias update-verify-conf='sudo find /etc -name "*.rpmnew" -or -name "*.rpmsave"'
+alias update-verify='sudo rpm -Va'
 alias wallpaper-size='xdpyinfo | grep dimensions | cut -d " " -f 7'
 alias watch='watch '
 alias wg-up='sudo wg-quick up wg0'
