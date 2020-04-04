@@ -84,6 +84,18 @@ function burp {
   chromium-browser --incognito --proxy-server=127.0.0.1:8080 http://burp &
 }
 
+function file-ext {
+  find "$1" -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/'\
+    | sort -fu | tr '[:upper:]' '[:lower:]'
+}
+
+function media-rename {
+  exiftool '-filename<CreateDate' -d 'Photo %Y-%m-%d %H:%M:%S%%-c.%%le' -r\
+           -ext jpg -ext heic "$1" &&\
+  exiftool '-filename<CreateDate' -d 'Video %Y-%m-%d %H:%M:%S%%-c.%%le' -r\
+           -ext mpg -ext avi -ext mp4 -ext mov "$1"
+}
+
 function repl {
   docker run --rm -it --detach-keys=ctrl-@\
          -v "$HOME/.m2:/home/app-user/.m2"\
