@@ -35,7 +35,6 @@ alias dropbox='docker exec -it -e "LANG=en_US.UTF-8" dropbox\
 alias ec='emacsclient -n'
 # find backup files, auto-save files, interlock symbolic links
 alias emacs-files='sudo find / -name "*~" -o -name "#*#" -o -name ".#*"'
-alias external-ip='curl https://www.gorczyca.xyz/cgi-bin/ip'
 alias gcp-ssh='gcloud compute ssh'
 complete -F _complete_alias gcp-ssh
 alias i-prune='{ docker image prune -f && podman image prune; }'
@@ -43,6 +42,7 @@ alias i-prune-all='{ docker image prune -a -f && podman image prune -a; }'
 alias i='{ docker images --digests && podman images --digests; }'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
+alias ip-external='curl https://www.gorczyca.xyz/cgi-bin/ip'
 alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
 alias ip-stats-wifi='ip -s -h link show wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
@@ -84,7 +84,7 @@ function burp {
   chromium-browser --incognito --proxy-server=127.0.0.1:8080 http://burp &
 }
 
-function file-ext {
+function file-exts {
   find "$1" -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/'\
     | sort -fu | tr '[:upper:]' '[:lower:]'
 }
