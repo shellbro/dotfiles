@@ -119,6 +119,9 @@
   (setq cider-repl-display-help-banner nil)
   (setq cider-save-file-on-load nil))
 
+(use-package dockerfile-mode
+  :ensure t)
+
 (use-package sh-script
   :config
   (setq sh-basic-offset 2))
