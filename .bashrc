@@ -21,8 +21,8 @@ export EDITOR
 export ANSIBLE_NOCOWS=1
 
 # User specific aliases and functions
-alias c-prune='{ docker container prune -f && podman container prune; }'
-alias c='{ docker ps -a && podman ps -a; }'
+alias c-prune='{ sudo docker container prune -f && podman container prune; }'
+alias c='{ sudo docker ps -a && podman ps -a; }'
 alias cdb='cd ~/Git/bitbucket.org'
 alias cdh='cd ~/Git/github.com'
 alias cdl='cd ~/Git/gitlab.com'
@@ -30,7 +30,8 @@ alias check-postfix='postqueue -p | grep -c "^[A-F0-9]"'
 alias check-unbound='sudo unbound-control stats_noreset | grep total'
 alias crontab-loop='sudo bash -c "cat /var/spool/cron/*"'
 alias df-pretty='df -Th -x tmpfs -x devtmpfs'
-alias dropbox='docker exec -it -e "LANG=en_US.UTF-8" dropbox\
+alias docker='sudo docker'
+alias dropbox='sudo docker exec -it -e "LANG=en_US.UTF-8" dropbox\
   /home/dropbox-user/bin/dropbox'
 alias ec='emacsclient -n'
 # find backup files, auto-save files, interlock symbolic links
@@ -39,9 +40,9 @@ alias gcp-ssh='gcloud compute ssh'
 complete -F _complete_alias gcp-ssh
 alias git-config-h='git config user.name "Jakub Gorczyca" &&\
   git config user.email shellbro@users.noreply.github.com'
-alias i-prune='{ docker image prune -f && podman image prune; }'
-alias i-prune-all='{ docker image prune -a -f && podman image prune -a; }'
-alias i='{ docker images --digests && podman images --digests; }'
+alias i-prune='{ sudo docker image prune -f && podman image prune; }'
+alias i-prune-all='{ sudo docker image prune -a -f && podman image prune -a; }'
+alias i='{ sudo docker images --digests && podman images --digests; }'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
 alias ip-external='curl https://www.gorczyca.xyz/cgi-bin/ip'
@@ -50,7 +51,8 @@ alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
 alias ip-stats-wifi='ip -s -h link show wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
-alias journalctl-errors='journalctl -b -p 3'
+alias journalctl-errors='sudo journalctl -b -p 3'
+alias journalctl='sudo journalctl'
 alias k-logs='kubectl logs --since=1s -f'
 complete -F _complete_alias k-logs
 alias k-nodes='kubectl get pod\
@@ -77,10 +79,10 @@ alias wallpaper-size='xdpyinfo | grep dimensions | cut -d " " -f 7'
 alias watch='watch '
 alias wg-up='sudo wg-quick up wg0'
 alias wg-down='sudo wg-quick down wg0'
-alias work-k-up='nmcli con up "Work - K (PPTP)"'
-alias work-k-down='nmcli con down "Work - K (PPTP)"'
-alias work-k2-up='nmcli con up "Work - K (L2TP with IPsec)"'
-alias work-k2-down='nmcli con down "Work - K (L2TP with IPsec)"'
+alias work-k-up='nmcli con up "Work - K (L2TP with IPsec)"'
+alias work-k-down='nmcli con down "Work - K (L2TP with IPsec)"'
+alias work-k2-up='nmcli con up "Work - K (PPTP)"'
+alias work-k2-down='nmcli con down "Work - K (PPTP)"'
 
 function benchmark {
   for run in {1..5}
@@ -108,11 +110,11 @@ function media-rename {
 }
 
 function repl {
-  docker run --rm -it --detach-keys=ctrl-@\
-         -v "$HOME/.m2:/home/app-user/.m2"\
-         --entrypoint=lein\
-         shellbro/devbox-clojure update-in :dependencies into "[$1]" --\
-         repl
+  sudo docker run --rm -it --detach-keys=ctrl-@\
+       -v "$HOME/.m2:/home/app-user/.m2"\
+       --entrypoint=lein\
+       shellbro/devbox-clojure update-in :dependencies into "[$1]" --\
+       repl
 }
 
 function ts2date {
