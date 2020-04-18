@@ -82,6 +82,14 @@ alias work-k-down='nmcli con down "Work - K (PPTP)"'
 alias work-k2-up='nmcli con up "Work - K (L2TP with IPsec)"'
 alias work-k2-down='nmcli con down "Work - K (L2TP with IPsec)"'
 
+function benchmark {
+  for run in {1..5}
+  do
+    sudo hdparm -Tt "$1"
+    sleep 10
+  done
+}
+
 function burp {
   java -jar ~/bin/burpsuite_community.jar &
   chromium-browser --incognito --proxy-server=127.0.0.1:8080 http://burp &
