@@ -66,7 +66,6 @@ alias kns=kubens
 alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias m=minikube
 complete -F __start_minikube m
-alias podman='sudo podman'
 alias speedtest='speedtest-cli'
 alias systemctl-failed='SYSTEMD_COLORS=1 systemctl --state=failed | less -R'
 alias sudo='sudo '
