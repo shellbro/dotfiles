@@ -32,14 +32,16 @@ alias crontab-loop='sudo bash -c "cat /var/spool/cron/*"'
 alias df-pretty='df -Th -x tmpfs -x devtmpfs'
 alias docker='sudo docker'
 alias dropbox='sudo docker exec -it -e "LANG=en_US.UTF-8" dropbox\
-  /home/dropbox-user/bin/dropbox'
+               /home/dropbox-user/bin/dropbox'
 alias ec='emacsclient -n'
 # find backup files, auto-save files, interlock symbolic links
 alias emacs-files='sudo find / -name "*~" -o -name "#*#" -o -name ".#*"'
 alias gcp-ssh='gcloud compute ssh'
 complete -F _complete_alias gcp-ssh
 alias git-config-h='git config user.name "Jakub Gorczyca" &&\
-  git config user.email shellbro@users.noreply.github.com'
+                    git config user.email shellbro@users.noreply.github.com'
+alias git-status='find ~/Git -mindepth 4 -maxdepth 4 -type d -exec bash -c\
+                  "(echo '{}' && cd '{}' && git status && echo)" \;'
 alias i-prune='{ sudo docker image prune -f && podman image prune; }'
 alias i-prune-all='{ sudo docker image prune -a -f && podman image prune -a; }'
 alias i='{ sudo docker images --digests && podman images --digests; }'
@@ -56,8 +58,8 @@ alias journalctl='sudo journalctl'
 alias k-logs='kubectl logs --since=1s -f'
 complete -F _complete_alias k-logs
 alias k-nodes='kubectl get pod\
-  -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name\
-  | (read -r; printf "%s\n" "$REPLY"; sort)'
+               -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name\
+                 | (read -r; printf "%s\n" "$REPLY"; sort)'
 alias k=kubectl
 complete -F __start_kubectl k
 alias kctx=kubectx
