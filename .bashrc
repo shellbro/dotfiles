@@ -21,8 +21,9 @@ export EDITOR
 export ANSIBLE_NOCOWS=1
 
 # User specific aliases and functions
-alias c-prune='{ sudo docker container prune -f && podman container prune; }'
-alias c='{ sudo docker ps -a && podman ps -a; }'
+alias c-prune='{ sudo docker container prune -f &&\
+                 sudo podman container prune; }'
+alias c='{ sudo docker ps -a && sudo podman ps -a; }'
 alias cdb='cd ~/Git/bitbucket.org'
 alias cdh='cd ~/Git/github.com'
 alias cdl='cd ~/Git/gitlab.com'
@@ -42,9 +43,10 @@ alias git-config-h='git config user.name "Jakub Gorczyca" &&\
                     git config user.email shellbro@users.noreply.github.com'
 alias git-status='find ~/Git -mindepth 4 -maxdepth 4 -type d -exec bash -c\
                   "(echo '{}' && cd '{}' && git status && echo)" \;'
-alias i-prune='{ sudo docker image prune -f && podman image prune; }'
-alias i-prune-all='{ sudo docker image prune -a -f && podman image prune -a; }'
-alias i='{ sudo docker images --digests && podman images --digests; }'
+alias i-prune='{ sudo docker image prune -f && sudo podman image prune; }'
+alias i-prune-all='{ sudo docker image prune -a -f &&\
+                     sudo podman image prune -a; }'
+alias i='{ sudo docker images --digests && sudo podman images --digests; }'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
 alias ip-external='curl https://www.gorczyca.xyz/cgi-bin/ip'
