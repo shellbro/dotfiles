@@ -55,7 +55,7 @@ alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
 alias ip-stats-wifi='ip -s -h link show wlp3s0'
 alias is-interactive-shell='[[ $- == *i* ]] && echo "yes" || echo "no"'
 alias is-login-shell='shopt -q login_shell && echo "yes" || echo "no"'
-alias journalctl-errors='sudo journalctl -b -p 3'
+alias journalctl-err='sudo journalctl -b -p 3'
 alias journalctl='sudo journalctl'
 alias k-logs='kubectl logs --since=1s -f'
 complete -F _complete_alias k-logs
