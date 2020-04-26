@@ -24,9 +24,9 @@ export ANSIBLE_NOCOWS=1
 alias c-prune='{ sudo docker container prune -f &&\
                  sudo podman container prune; }'
 alias c='{ sudo docker ps -a && sudo podman ps -a; }'
-alias cdb='cd ~/Git/bitbucket.org'
-alias cdh='cd ~/Git/github.com'
-alias cdl='cd ~/Git/gitlab.com'
+alias cdbb='cd ~/Git/bitbucket.org'
+alias cdgh='cd ~/Git/github.com'
+alias cdgl='cd ~/Git/gitlab.com'
 alias check-postfix='postqueue -p | grep -c "^[A-F0-9]"'
 alias check-unbound='sudo unbound-control stats_noreset | grep total'
 alias crontab-loop='sudo bash -c "cat /var/spool/cron/*"'
@@ -67,6 +67,9 @@ complete -F __start_kubectl k
 alias kctx=kubectx
 alias kernel-cleanup='sudo package-cleanup --oldkernels'
 alias kns=kubens
+alias ls.='ls -d .*'
+alias ll.='ls -lhd .*'
+alias ll='ls -lh'
 alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias m=minikube
 complete -F __start_minikube m
@@ -98,6 +101,10 @@ function benchmark {
 function burp {
   java -jar ~/bin/burpsuite_community.jar &
   chromium-browser --incognito --proxy-server=127.0.0.1:8080 http://burp &
+}
+
+function cdls {
+  cd "$@" && ls
 }
 
 function file-exts {
