@@ -39,7 +39,7 @@ alias ec='emacsclient -n'
 alias emacs-files='sudo find / -name "*~" -o -name "#*#" -o -name ".#*"'
 alias gcp-ssh='gcloud compute ssh'
 complete -F _complete_alias gcp-ssh
-alias git-config-h='git config user.name "Jakub Gorczyca" &&\
+alias git-config-gh='git config user.name "Jakub Gorczyca" &&\
                     git config user.email shellbro@users.noreply.github.com'
 alias git-status='find ~/Git -mindepth 4 -maxdepth 4 -type d -exec bash -c\
                   "(echo '{}' && cd '{}' && git status && echo)" \;'
