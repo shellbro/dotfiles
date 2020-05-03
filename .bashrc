@@ -73,6 +73,9 @@ alias ll='ls -lh'
 alias lsblk-pretty='lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT'
 alias m=minikube
 complete -F __start_minikube m
+alias mod-available='find /lib/modules/$(uname -r) -type f -name "*.ko*"'
+alias mod-load=modprobe
+alias mod-loaded=lsmod
 alias speedtest='speedtest-cli'
 alias systemctl-failed='SYSTEMD_COLORS=1 systemctl --state=failed | less -R'
 alias sudo='sudo '
