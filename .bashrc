@@ -49,6 +49,7 @@ alias i-prune-all='{ sudo docker image prune -a -f &&\
 alias i='{ sudo docker images --digests && sudo podman images --digests; }'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
+alias interfaces-pretty='ip link | grep -v -e virbr -e docker'
 alias ip-external='curl https://www.gorczyca.xyz/cgi-bin/ip'
 alias ip-internal='hostname -I'
 alias ip-stats-lte='ip -s -h link show wwp0s20f0u6'
@@ -93,6 +94,7 @@ alias work-k-up='nmcli con up "Work - K (L2TP with IPsec)"'
 alias work-k-down='nmcli con down "Work - K (L2TP with IPsec)"'
 alias work-k2-up='nmcli con up "Work - K (PPTP)"'
 alias work-k2-down='nmcli con down "Work - K (PPTP)"'
+alias zones='firewall-cmd --get-active-zones'
 
 function benchmark {
   for run in {1..5}
