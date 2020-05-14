@@ -21,7 +21,6 @@
 (setq-default tab-width 2)
 
 (put 'narrow-to-region 'disabled nil)
-(setq tramp-default-method "ssh")
 
 (setq initial-major-mode 'text-mode)
 (setq initial-scratch-message nil)
