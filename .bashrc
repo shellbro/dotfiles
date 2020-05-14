@@ -21,6 +21,7 @@ export EDITOR
 export ANSIBLE_NOCOWS=1
 
 # User specific aliases and functions
+alias c-lp='sudo docker port $(sudo docker ps -ql)'
 alias c-prune='{ sudo docker container prune -f &&\
                  sudo podman container prune; }'
 alias c='{ sudo docker ps -a && sudo podman ps -a; }'
