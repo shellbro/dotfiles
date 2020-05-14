@@ -24,7 +24,8 @@ export ANSIBLE_NOCOWS=1
 alias c-lp='sudo docker port $(sudo docker ps -ql)'
 alias c-prune='{ sudo docker container prune -f &&\
                  sudo podman container prune; }'
-alias c='{ sudo docker ps -a && sudo podman ps -a; }'
+alias c-all='{ sudo docker ps -a && sudo podman ps -a; }'
+alias c='{ sudo docker ps && sudo podman ps; }'
 alias cdbb='cd ~/Git/bitbucket.org'
 alias cdgh='cd ~/Git/github.com'
 alias cdgl='cd ~/Git/gitlab.com'
