@@ -51,6 +51,7 @@ alias i-prune-all='{ sudo docker image prune -a -f &&\
 alias i='{ sudo docker images --digests && sudo podman images --digests; }'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
+alias instant='date +%s'
 alias interfaces-pretty='ip link | grep -v -e virbr -e docker'
 alias ip-external='curl https://www.gorczyca.xyz/cgi-bin/ip'
 alias ip-internal='hostname -I'
@@ -83,7 +84,6 @@ alias speedtest='speedtest-cli'
 alias systemctl-failed='SYSTEMD_COLORS=1 systemctl --state=failed | less -R'
 alias sudo='sudo '
 alias tree='tree -aF -I ".git"'
-alias ts='date +%s'
 alias update-history='sudo yum history'
 alias update-verify-conf='sudo find /etc -name "*.rpmnew" -or -name "*.rpmsave"'
 alias update-verify='sudo rpm -Va'
@@ -135,6 +135,6 @@ function repl {
        repl
 }
 
-function ts2date {
+function instant2zoned {
   date -d "@$1"
 }
