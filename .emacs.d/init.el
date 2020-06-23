@@ -31,12 +31,14 @@
 (add-hook 'emacs-startup-hook '(lambda () (other-window 1)))
 
 (defun find-file-other-window-and-return ()
+  "."
   (interactive)
   (let ((win-curr (selected-window)))
     (call-interactively 'find-file-other-window)
     (select-window win-curr)))
 
-(defun kill-buffer-other-window ()
+(defun kill-buffer-other-window-and-return ()
+  "."
   (interactive)
   (let ((win-curr (selected-window)))
     (switch-to-buffer-other-window "foo2707")
@@ -47,7 +49,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-x C-S-f") 'find-file-other-window-and-return)
-(global-set-key (kbd "C-x K") 'kill-buffer-other-window)
+(global-set-key (kbd "C-x K") 'kill-buffer-other-window-and-return)
 
 (require 'use-package)
 
@@ -60,11 +62,6 @@
   :init
   (winner-mode))
 
-(use-package whitespace
-  :hook (after-init . global-whitespace-mode)
-  :config
-  (setq whitespace-style '(face tabs empty trailing lines-tail)))
-
 (use-package company
   :ensure t
   :hook (after-init . global-company-mode)
@@ -73,6 +70,16 @@
 (use-package flycheck
   :ensure t
   :hook (after-init . global-flycheck-mode))
+
+(use-package whitespace
+  :hook ((after-init . global-whitespace-mode)
+         (prog-mode . (lambda() (push 'lines whitespace-style))))
+  :config
+  (setq whitespace-style '(face trailing tabs empty)))
+
+(use-package refill
+  :hook ((org-mode . refill-mode)
+         (markdown-mode . refill-mode)))
 
 (use-package hideshow
   :hook (prog-mode . (lambda()
@@ -91,6 +98,7 @@
   :hook ((prog-mode cider-repl-mode) . rainbow-delimiters-mode))
 
 (defun aggressive-indent-indent-buffer ()
+  "."
   (interactive)
   (aggressive-indent-indent-region-and-on (point-min) (point-max)))
 
@@ -99,7 +107,12 @@
   :hook ((emacs-lisp-mode clojure-mode) . aggressive-indent-mode)
   :bind ("C-c i" . aggressive-indent-indent-buffer))
 
+(use-package org
+  :config
+  (setq org-startup-truncated nil))
+
 (defun cider-connect-if-repl-running ()
+  "."
   (let ((path (concat default-directory "../../.nrepl-port")))
     (when (and (string= (file-name-nondirectory (buffer-file-name)) "core.clj")
                (file-exists-p path))
@@ -166,7 +179,7 @@
   :ensure t
   :config
   (setq auto-package-update-delete-old-versions t
-        auto-package-update-interval 3)
+        auto-package-update-interval 7)
   (auto-package-update-maybe))
 
 (setq custom-file "~/.emacs.d/custom.el")
