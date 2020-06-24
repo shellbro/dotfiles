@@ -73,13 +73,15 @@
 
 (use-package whitespace
   :hook ((after-init . global-whitespace-mode)
-         (prog-mode . (lambda() (push 'lines whitespace-style))))
+         ((prog-mode org-mode). (lambda() (push 'lines whitespace-style))))
   :config
   (setq whitespace-style '(face trailing tabs empty)))
 
 (use-package refill
   :hook ((org-mode . refill-mode)
-         (markdown-mode . refill-mode)))
+         (markdown-mode . refill-mode))
+  :config
+  (setq-default fill-column 80))
 
 (use-package hideshow
   :hook (prog-mode . (lambda()
