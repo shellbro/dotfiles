@@ -130,7 +130,7 @@ function media-rename {
 function repl {
   sudo docker run --rm -it --detach-keys=ctrl-@\
                   -v "$HOME/.m2:/home/app-user/.m2"\
-                  shellbro/clojure -Sdeps "{:deps ${1:-{}}}"
+                  shellbro/clojure clj -Sdeps "{:deps ${1:-{}}}"
 }
 
 function instant2zoned {
