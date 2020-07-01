@@ -113,21 +113,8 @@
   :config
   (setq org-startup-truncated nil))
 
-(defun cider-connect-if-repl-running ()
-  "."
-  (let ((path (concat default-directory "../../.nrepl-port")))
-    (when (and (string= (file-name-nondirectory (buffer-file-name)) "core.clj")
-               (file-exists-p path))
-      (let ((host "localhost")
-            (port (with-temp-buffer
-                    (insert-file-contents path)
-                    (buffer-string))))
-        (when (= 0 (call-process "nc" nil nil nil "-z" host port))
-          (cider-connect `(:host ,host :port ,port)))))))
-
 (use-package cider
   :ensure t
-  :hook (clojure-mode . cider-connect-if-repl-running)
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
   (setq cider-repl-display-help-banner nil)
