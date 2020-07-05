@@ -73,7 +73,8 @@
 
 (use-package whitespace
   :hook ((after-init . global-whitespace-mode)
-         ((prog-mode org-mode). (lambda() (push 'lines whitespace-style))))
+         ((prog-mode org-mode yaml-mode) .
+          (lambda() (push 'lines whitespace-style))))
   :config
   (setq whitespace-style '(face trailing tabs empty)))
 
