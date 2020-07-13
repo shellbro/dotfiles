@@ -121,6 +121,11 @@
   (setq cider-repl-display-help-banner nil)
   (setq cider-save-file-on-load nil))
 
+(use-package sqlformat
+  :ensure t
+  :config
+  (setq sqlformat-command "pg_format -f 1 -s 2"))
+
 (use-package dockerfile-mode
   :ensure t)
 
