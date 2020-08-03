@@ -114,6 +114,13 @@
   :config
   (setq org-startup-truncated nil))
 
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 2))
+
+(use-package company-graphviz-dot)
+
 (use-package cider
   :ensure t
   :config
