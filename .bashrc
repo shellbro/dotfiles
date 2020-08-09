@@ -39,6 +39,7 @@ alias dropbox='sudo docker exec -it -e "LANG=en_US.UTF-8" dropbox\
 alias ec='emacsclient -n'
 # find backup files, auto-save files, interlock symbolic links
 alias emacs-files='sudo find / -name "*~" -o -name "#*#" -o -name ".#*"'
+alias epoch='date +%s'
 alias gcp-ssh='gcloud compute ssh'
 complete -F _complete_alias gcp-ssh
 alias git-config-gh='git config user.name "Jakub Gorczyca" &&\
@@ -51,7 +52,6 @@ alias i-prune-all='{ sudo docker image prune -a -f &&\
 alias i='{ sudo docker images --digests && sudo podman images --digests; }'
 alias iftop-lte='sudo iftop -i wwp0s20f0u6'
 alias iftop-wifi='sudo iftop -i wlp3s0'
-alias instant='date +%s'
 alias interfaces-pretty='ip link | grep -v -e virbr -e docker'
 alias ip-external='curl https://www.gorczyca.xyz/cgi-bin/ip'
 alias ip-internal='hostname -I'
@@ -97,6 +97,7 @@ alias work-k-down='nmcli con down "Work - K (L2TP with IPsec)"'
 alias work-k2-up='nmcli con up "Work - K (PPTP)"'
 alias work-k2-down='nmcli con down "Work - K (PPTP)"'
 alias zones='firewall-cmd --get-active-zones'
+alias zulu='date --utc +%Y-%m-%dT%H:%M:%SZ'
 
 function benchmark {
   for run in {1..5}
@@ -115,6 +116,10 @@ function cdls {
   cd "$@" && ls
 }
 
+function epoch2zulu {
+  date -d "@$1" --utc +%Y-%m-%dT%H:%M:%SZ
+}
+
 function file-exts {
   find "$1" -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/'\
     | sort -fu | tr '[:upper:]' '[:lower:]'
@@ -131,8 +136,4 @@ function repl {
   sudo docker run --rm -it --detach-keys=ctrl-@\
                   -v "$HOME/.m2:/home/app-user/.m2"\
                   shellbro/clojure clj -Sdeps "{:deps ${1:-{}}}"
-}
-
-function instant2zoned {
-  date -d "@$1"
 }
