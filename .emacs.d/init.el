@@ -2,7 +2,6 @@
 
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(package-initialize)
 
 (setq inhibit-startup-screen t)
 (tool-bar-mode -1)
@@ -74,7 +73,7 @@
 (use-package whitespace
   :hook ((after-init . global-whitespace-mode)
          ((prog-mode org-mode yaml-mode) .
-          (lambda() (push 'lines whitespace-style))))
+          (lambda() (setq whitespace-style '(face trailing tabs empty lines)))))
   :config
   (setq whitespace-style '(face trailing tabs empty)))
 
@@ -123,8 +122,7 @@
   :ensure t
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
-  (setq cider-repl-display-help-banner nil)
-  (setq cider-save-file-on-load nil)
+  (setq cider-save-file-on-load t)
   (setq cider-auto-select-error-buffer nil))
 
 (use-package sqlformat
