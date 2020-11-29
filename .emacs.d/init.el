@@ -122,8 +122,7 @@
   :ensure t
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
-  (setq cider-save-file-on-load t)
-  (setq cider-auto-select-error-buffer nil))
+  (setq cider-save-file-on-load t))
 
 (use-package sqlformat
   :ensure t
