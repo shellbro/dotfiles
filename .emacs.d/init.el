@@ -15,14 +15,15 @@
 ;; Disable backup files on save (filename~)
 (setq make-backup-files nil)
 
+(setq initial-major-mode 'text-mode)
+(setq initial-scratch-message nil)
+
 (setq require-final-newline t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
+(setq help-window-select t)
 (put 'narrow-to-region 'disabled nil)
-
-(setq initial-major-mode 'text-mode)
-(setq initial-scratch-message nil)
 
 (toggle-frame-maximized)
 (split-window-right)
