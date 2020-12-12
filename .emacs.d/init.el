@@ -8,6 +8,7 @@
 (blink-cursor-mode -1)
 (setq ring-bell-function 'ignore)
 (setq column-number-mode t)
+(setq-default fill-column 80)
 (set-frame-font "Source Code Pro 11")
 
 ;; Disable auto-save files (#filename#)
@@ -80,9 +81,7 @@
 
 (use-package refill
   :hook ((org-mode . refill-mode)
-         (markdown-mode . refill-mode))
-  :config
-  (setq-default fill-column 80))
+         (markdown-mode . refill-mode)))
 
 (use-package hideshow
   :hook (prog-mode . (lambda()
