@@ -158,14 +158,6 @@
                        (local-set-key (kbd "C-S-<down>") 'hs-show-all)
                        (hs-minor-mode t))))
 
-(use-package neotree
-  :ensure t
-  :hook (after-init . neotree-toggle)
-  :bind ([f8] . neotree-refresh)
-  :config
-  (setq neo-theme 'ascii)
-  (setq neo-autorefresh nil))
-
 (use-package server
   :init
   (server-mode 1)
