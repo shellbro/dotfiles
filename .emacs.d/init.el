@@ -28,7 +28,7 @@
 (toggle-frame-maximized)
 (split-window-right)
 (switch-to-buffer-other-window "*Messages*")
-(add-hook 'emacs-startup-hook '(lambda () (other-window 1)))
+(add-hook 'emacs-startup-hook '(lambda() (other-window 1)))
 
 (defun find-file-other-window-and-return ()
   "."
@@ -47,7 +47,7 @@
     (select-window win-curr)))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
+(global-set-key (kbd "C-x O") (lambda() (interactive) (other-window -1)))
 (global-set-key (kbd "C-x C-S-f") 'find-file-other-window-and-return)
 (global-set-key (kbd "C-x K") 'kill-buffer-other-window-and-return)
 
