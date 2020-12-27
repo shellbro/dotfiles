@@ -123,7 +123,8 @@
   :config
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
   (setq cider-save-file-on-load t)
-  (setq cider-prompt-for-symbol nil))
+  (setq cider-prompt-for-symbol nil)
+  (setq cider-clojure-cli-global-options "-A:dev"))
 
 (use-package sqlformat
   :ensure t
