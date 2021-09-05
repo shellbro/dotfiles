@@ -23,7 +23,8 @@ export ANSIBLE_NOCOWS=1
 # User specific aliases and functions
 alias air='{ airctrl --ipaddr 192.168.254.17 --protocol coap &&
              airctrl --ipaddr 192.168.254.20 --protocol coap ; } |
-             grep -F -e "[om]" -e "[mode]" -e "[pm25]" -e "[iaql]"'
+             grep -F -e "[name]" -e "[om]" -e "[mode]" -e "[pm25]" -e "[iaql]"\
+             --color=never'
 alias c-lp='sudo docker port $(sudo docker ps -ql)'
 alias c-prune='{ sudo docker container prune -f &&\
                  sudo podman container prune; }'
